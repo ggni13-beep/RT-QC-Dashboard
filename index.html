@@ -1,827 +1,736 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <title>RT Clinical Quality Dashboard</title>
 
-<title>RT Clinical Quality Dashboard</title>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<style>
+  <style>
 
-/* =====================================================
-   RT Clinical Quality Dashboard
-   Standalone Version
-   No external JavaScript library required
-===================================================== */
+    /* ==========================================
+       基本設定
+    ========================================== */
 
+    * {
+      box-sizing: border-box;
+    }
 
-/* =========================
-   Basic
-========================= */
+    html {
+      scroll-behavior: smooth;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    body {
 
-html {
-  scroll-behavior: smooth;
-}
+      margin: 0;
 
-body {
+      font-family:
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        Arial,
+        sans-serif;
 
-  margin: 0;
+      background: #f4f6f8;
 
-  font-family:
-    "Microsoft JhengHei",
-    "Noto Sans TC",
-    Arial,
-    sans-serif;
+      color: #1f2937;
 
-  background: #f4f6f8;
+      line-height: 1.6;
 
-  color: #1f2937;
+    }
 
-  line-height: 1.6;
 
-}
+    /* ==========================================
+       Header
+    ========================================== */
 
+    header {
 
-/* =========================
-   Header
-========================= */
+      background: #ffffff;
 
-header {
+      border-bottom:
+        1px solid #e5e7eb;
 
-  background: #ffffff;
+      padding:
+        32px 20px;
 
-  border-bottom: 1px solid #e5e7eb;
+    }
 
-  padding: 32px 20px;
+    .header-container {
 
-}
+      max-width: 1250px;
 
-.header-container {
+      margin: auto;
 
-  max-width: 1280px;
+    }
 
-  margin: auto;
+    .header-title {
 
-}
+      display: flex;
 
-.header-title {
+      align-items: center;
 
-  display: flex;
+      gap: 12px;
 
-  align-items: center;
+      flex-wrap: wrap;
 
-  gap: 12px;
+    }
 
-  flex-wrap: wrap;
+    header h1 {
 
-}
+      margin: 0;
 
-header h1 {
+      font-size: 30px;
 
-  margin: 0;
+      font-weight: 700;
 
-  font-size: 30px;
+      color: #1e293b;
 
-  color: #1e293b;
+    }
 
-}
+    .header-subtitle {
 
-.header-subtitle {
+      margin-top: 8px;
 
-  margin-top: 8px;
+      color: #64748b;
 
-  color: #64748b;
+      font-size: 16px;
 
-  font-size: 15px;
+    }
 
-}
+    .update-tag {
 
-.update-tag {
+      display: inline-block;
 
-  display: inline-block;
+      margin-top: 16px;
 
-  margin-top: 14px;
+      padding:
+        8px 16px;
 
-  padding: 6px 13px;
+      border-radius: 999px;
 
-  border-radius: 20px;
+      background: #eef2f7;
 
-  background: #eef2f7;
+      color: #475569;
 
-  color: #475569;
+      font-size: 14px;
 
-  font-size: 13px;
+    }
 
-}
 
+    /* ==========================================
+       Main
+    ========================================== */
 
-/* =========================
-   Navigation
-========================= */
+    main {
 
-nav {
+      max-width: 1250px;
 
-  background: #ffffff;
+      margin: auto;
 
-  border-bottom: 1px solid #e5e7eb;
+      padding:
+        30px 18px 70px;
 
-}
+    }
 
-.nav-container {
 
-  max-width: 1280px;
+    /* ==========================================
+       Navigation
+    ========================================== */
 
-  margin: auto;
+    .dashboard-nav {
 
-  padding: 0 18px;
+      display: flex;
 
-  display: flex;
+      gap: 14px;
 
-  gap: 22px;
+      flex-wrap: wrap;
 
-  overflow-x: auto;
+      margin-top: 28px;
 
-}
+    }
 
-nav a {
+    .nav-button {
 
-  text-decoration: none;
+      display: inline-flex;
 
-  color: #475569;
+      align-items: center;
 
-  font-size: 14px;
+      justify-content: center;
 
-  white-space: nowrap;
+      text-decoration: none;
 
-  padding: 14px 0;
+      font-size: 16px;
 
-}
+      font-weight: 700;
 
-nav a:hover {
+      padding:
+        13px 22px;
 
-  color: #1e293b;
+      border-radius: 14px;
 
-}
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
+    }
 
-/* =========================
-   Main
-========================= */
+    .nav-button:hover {
 
-main {
+      transform:
+        translateY(-2px);
 
-  max-width: 1280px;
+      box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.12);
 
-  margin: auto;
+    }
 
-  padding: 30px 18px 80px;
 
-}
+    /* Overview */
 
+    .nav-overview {
 
-/* =========================
-   Section
-========================= */
+      background: #e8f0fe;
 
-.section {
+      color: #1d4ed8;
 
-  margin-top: 40px;
+      border:
+        1px solid #bfdbfe;
 
-}
+    }
 
-.section-header {
 
-  margin-bottom: 18px;
+    /* Quality Trend */
 
-}
+    .nav-trend {
 
-.section-header h2 {
+      background: #e8f7ef;
 
-  margin: 0 0 6px;
+      color: #047857;
 
-  font-size: 24px;
+      border:
+        1px solid #a7f3d0;
 
-  color: #1e293b;
+    }
 
-}
 
-.section-header p {
+    /* Pareto */
 
-  margin: 0;
+    .nav-pareto {
 
-  font-size: 14px;
+      background: #fff3e6;
 
-  color: #64748b;
+      color: #c2410c;
 
-}
+      border:
+        1px solid #fed7aa;
 
+    }
 
-/* =========================
-   Card
-========================= */
 
-.card {
+    /* ==========================================
+       Section
+    ========================================== */
 
-  background: #ffffff;
+    .section {
 
-  border: 1px solid #e5e7eb;
+      margin-top: 55px;
 
-  border-radius: 16px;
+    }
 
-  padding: 22px;
+    .section-header {
 
-  box-shadow:
-    0 2px 10px rgba(15,23,42,0.04);
+      margin-bottom: 20px;
 
-}
+    }
 
+    .section-header h2 {
 
-/* =========================
-   KPI
-========================= */
+      margin: 0 0 6px 0;
 
-.kpi-grid {
+      font-size: 30px;
 
-  display: grid;
+      color: #1e293b;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+    }
 
-  gap: 16px;
+    .section-header p {
 
-}
+      margin: 0;
 
-.kpi-card {
+      font-size: 17px;
 
-  background: #ffffff;
+      color: #64748b;
 
-  border: 1px solid #e5e7eb;
+    }
 
-  border-radius: 16px;
 
-  padding: 20px;
+    /* ==========================================
+       Card
+    ========================================== */
 
-  min-height: 155px;
+    .card {
 
-  display: flex;
+      background: white;
 
-  flex-direction: column;
+      border:
+        1px solid #e5e7eb;
 
-  justify-content: space-between;
+      border-radius: 20px;
 
-}
+      padding: 24px;
 
-.kpi-label {
+      box-shadow:
+        0 4px 15px rgba(15, 23, 42, 0.04);
 
-  color: #64748b;
+    }
 
-  font-size: 14px;
 
-}
+    /* ==========================================
+       KPI
+    ========================================== */
 
-.kpi-value {
+    .kpi-grid {
 
-  font-size: 34px;
+      display: grid;
 
-  font-weight: 700;
+      grid-template-columns:
+        repeat(3, 1fr);
 
-  color: #1e293b;
+      gap: 18px;
 
-  margin: 8px 0;
+    }
 
-}
+    .kpi-card {
 
-.kpi-footer {
+      background: white;
 
-  font-size: 13px;
+      border:
+        1px solid #e5e7eb;
 
-  color: #64748b;
+      border-radius: 20px;
 
-}
+      padding: 24px;
 
+      min-height: 220px;
 
-/* =========================
-   Status
-========================= */
+      display: flex;
 
-.status-good {
+      flex-direction: column;
 
-  color: #047857;
+      justify-content: space-between;
 
-  font-weight: 600;
+      box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.04);
 
-}
+    }
 
-.status-watch {
+    .kpi-label {
 
-  color: #b45309;
+      color: #64748b;
 
-  font-weight: 600;
+      font-size: 18px;
 
-}
+    }
 
-.status-alert {
+    .kpi-value {
 
-  color: #b91c1c;
+      font-size: 42px;
 
-  font-weight: 600;
+      font-weight: 700;
 
-}
+      margin:
+        16px 0;
 
+    }
 
-/* =========================
-   Summary
-========================= */
+    .kpi-footer {
 
-.summary-grid {
+      font-size: 18px;
 
-  display: grid;
+      color: #64748b;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+      line-height: 1.6;
 
-  gap: 16px;
+    }
 
-}
 
-.summary-item {
+    /* KPI 1 */
 
-  background: #f8fafc;
+    .indicator-1 {
 
-  border: 1px solid #e5e7eb;
+      border-top:
+        6px solid #2563eb;
 
-  border-radius: 14px;
+    }
 
-  padding: 18px;
+    .indicator-1 .kpi-value {
 
-}
+      color: #2563eb;
 
-.summary-label {
+    }
 
-  color: #64748b;
 
-  font-size: 13px;
+    /* KPI 2 */
 
-}
+    .indicator-2 {
 
-.summary-value {
+      border-top:
+        6px solid #059669;
 
-  margin-top: 5px;
+    }
 
-  font-size: 27px;
+    .indicator-2 .kpi-value {
 
-  font-weight: 700;
+      color: #047857;
 
-}
+    }
 
 
-/* =========================
-   Charts
-========================= */
+    /* KPI 3 */
 
-.chart-container {
+    .indicator-3 {
 
-  position: relative;
+      border-top:
+        6px solid #d97706;
 
-  width: 100%;
+    }
 
-  overflow-x: auto;
+    .indicator-3 .kpi-value {
 
-}
+      color: #c2410c;
 
-.chart-container svg {
+    }
 
-  width: 100%;
 
-  min-width: 760px;
+    /* ==========================================
+       Summary
+    ========================================== */
 
-  height: 380px;
+    .summary-grid {
 
-}
+      display: grid;
 
+      grid-template-columns:
+        repeat(3, 1fr);
 
-/* =========================
-   Legend
-========================= */
+      gap: 16px;
 
-.legend {
+    }
 
-  display: flex;
+    .summary-item {
 
-  gap: 18px;
+      padding: 20px;
 
-  flex-wrap: wrap;
+      border-radius: 16px;
 
-  margin-bottom: 16px;
+      background: #f8fafc;
 
-}
+      border:
+        1px solid #e5e7eb;
 
-.legend-item {
+    }
 
-  display: flex;
+    .summary-label {
 
-  align-items: center;
+      color: #64748b;
 
-  gap: 7px;
+      font-size: 15px;
 
-  font-size: 13px;
+    }
 
-  color: #475569;
+    .summary-value {
 
-}
+      font-size: 30px;
 
-.legend-dot {
+      font-weight: 700;
 
-  width: 10px;
+      margin-top: 6px;
 
-  height: 10px;
+      color: #1e293b;
 
-  border-radius: 50%;
+    }
 
-}
 
+    /* ==========================================
+       Chart
+    ========================================== */
 
-/* =========================
-   Pareto
-========================= */
+    .chart-box {
 
-.pareto-container {
+      position: relative;
 
-  overflow-x: auto;
+      width: 100%;
 
-}
+      height: 430px;
 
-.pareto-table {
+    }
 
-  width: 100%;
 
-  min-width: 720px;
+    /* ==========================================
+       Custom Legend
+    ========================================== */
 
-  border-collapse: collapse;
+    .custom-legend {
 
-}
+      display: flex;
 
-.pareto-table th {
+      flex-wrap: wrap;
 
-  background: #f8fafc;
+      gap: 14px;
 
-  color: #475569;
+      margin-bottom: 20px;
 
-  font-size: 13px;
+    }
 
-  font-weight: 600;
+    .legend-item {
 
-}
+      display: flex;
 
-.pareto-table th,
-.pareto-table td {
+      align-items: center;
 
-  padding: 13px;
+      gap: 10px;
 
-  text-align: left;
+      padding:
+        10px 16px;
 
-  border-bottom: 1px solid #e5e7eb;
+      border-radius: 12px;
 
-}
+      background: #f8fafc;
 
-.bar-background {
+      border:
+        1px solid #e5e7eb;
 
-  width: 100%;
+      font-size: 15px;
 
-  height: 10px;
+      color: #475569;
 
-  background: #e5e7eb;
+      font-weight: 600;
 
-  border-radius: 20px;
+    }
 
-  overflow: hidden;
+    .legend-dot {
 
-}
+      width: 14px;
 
-.bar {
+      height: 14px;
 
-  height: 100%;
+      border-radius: 50%;
 
-  border-radius: 20px;
+      flex-shrink: 0;
 
-}
+    }
 
-.bar-1 {
-  background: #2563eb;
-}
+    .dot-blue {
 
-.bar-2 {
-  background: #0f766e;
-}
+      background: #2563eb;
 
-.bar-3 {
-  background: #d97706;
-}
+    }
 
-.bar-4 {
-  background: #dc2626;
-}
+    .dot-green {
 
-.bar-5 {
-  background: #7c3aed;
-}
+      background: #059669;
 
+    }
 
-/* =========================
-   Tracker
-========================= */
+    .dot-orange {
 
-.tracker-grid {
+      background: #d97706;
 
-  display: grid;
+    }
 
-  grid-template-columns:
-    repeat(3, 1fr);
 
-  gap: 16px;
+    /* ==========================================
+       Pareto
+    ========================================== */
 
-}
+    .pareto-table {
 
-.tracker-card {
+      width: 100%;
 
-  background: #ffffff;
+      border-collapse: collapse;
 
-  border: 1px solid #e5e7eb;
+      margin-top: 25px;
 
-  border-radius: 16px;
+    }
 
-  padding: 20px;
+    .pareto-table th {
 
-}
+      background: #f8fafc;
 
-.tracker-month {
+      color: #475569;
 
-  font-size: 13px;
+      text-align: left;
 
-  color: #64748b;
+      padding: 12px;
 
-}
+      border-bottom:
+        1px solid #e5e7eb;
 
-.tracker-title {
+    }
 
-  margin-top: 6px;
+    .pareto-table td {
 
-  font-size: 17px;
+      padding: 13px;
 
-  font-weight: 700;
+      border-bottom:
+        1px solid #eef2f7;
 
-}
+    }
 
-.tracker-problem {
 
-  margin-top: 12px;
+    /* ==========================================
+       Footer
+    ========================================== */
 
-  padding: 12px;
+    footer {
 
-  border-radius: 10px;
+      margin-top: 70px;
 
-  background: #fef2f2;
+      padding-top: 30px;
 
-  font-size: 13px;
+      border-top:
+        1px solid #e5e7eb;
 
-  color: #991b1b;
+      color: #94a3b8;
 
-}
+      font-size: 14px;
 
-.tracker-action {
+      text-align: center;
 
-  margin-top: 10px;
+    }
 
-  padding: 12px;
 
-  border-radius: 10px;
+    /* ==========================================
+       Responsive
+    ========================================== */
 
-  background: #eff6ff;
+    @media (max-width: 900px) {
 
-  font-size: 13px;
+      .kpi-grid {
 
-  color: #1d4ed8;
+        grid-template-columns:
+          1fr;
 
-}
+      }
 
-.tracker-status {
+      .summary-grid {
 
-  display: inline-block;
+        grid-template-columns:
+          1fr;
 
-  margin-top: 14px;
+      }
 
-  padding: 5px 10px;
+    }
 
-  border-radius: 20px;
 
-  font-size: 12px;
+    @media (max-width: 600px) {
 
-  font-weight: 600;
+      header {
 
-}
+        padding:
+          24px 18px;
 
-.completed {
+      }
 
-  background: #ecfdf5;
+      header h1 {
 
-  color: #047857;
+        font-size: 25px;
 
-}
+      }
 
-.monitoring {
+      main {
 
-  background: #fffbeb;
+        padding:
+          25px 14px 60px;
 
-  color: #b45309;
+      }
 
-}
+      .section {
 
-.in-progress {
+        margin-top: 45px;
 
-  background: #eff6ff;
+      }
 
-  color: #1d4ed8;
+      .section-header h2 {
 
-}
+        font-size: 25px;
 
+      }
 
-/* =========================
-   Monthly Table
-========================= */
+      .dashboard-nav {
 
-.table-container {
+        display: grid;
 
-  overflow-x: auto;
+        grid-template-columns:
+          1fr;
 
-}
+      }
 
-.data-table {
+      .nav-button {
 
-  width: 100%;
+        width: 100%;
 
-  min-width: 760px;
+      }
 
-  border-collapse: collapse;
+      .card {
 
-}
+        padding: 18px;
 
-.data-table th {
+      }
 
-  background: #f8fafc;
+      .kpi-card {
 
-  color: #475569;
+        min-height: 200px;
 
-  font-size: 13px;
+        padding: 22px;
 
-  font-weight: 600;
+      }
 
-}
+      .kpi-value {
 
-.data-table th,
-.data-table td {
+        font-size: 38px;
 
-  padding: 14px;
+      }
 
-  text-align: center;
+      .kpi-footer {
 
-  border-bottom: 1px solid #e5e7eb;
+        font-size: 17px;
 
-}
+      }
 
-.data-table td:first-child,
-.data-table th:first-child {
+      .chart-box {
 
-  text-align: left;
+        height: 430px;
 
-}
+      }
 
-.month-good {
+      .custom-legend {
 
-  color: #047857;
+        flex-direction: column;
 
-  font-weight: 600;
+        gap: 10px;
 
-}
+      }
 
-.month-watch {
+      .legend-item {
 
-  color: #b45309;
+        width: 100%;
 
-  font-weight: 600;
+        font-size: 14px;
 
-}
+      }
 
+    }
 
-/* =========================
-   Footer
-========================= */
-
-footer {
-
-  border-top: 1px solid #e5e7eb;
-
-  background: #ffffff;
-
-  padding: 25px 18px;
-
-  color: #64748b;
-
-  font-size: 13px;
-
-}
-
-.footer-container {
-
-  max-width: 1280px;
-
-  margin: auto;
-
-}
-
-
-/* =========================
-   Responsive
-========================= */
-
-@media (max-width: 1000px) {
-
-  .kpi-grid {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
-  }
-
-  .tracker-grid {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
-  }
-
-}
-
-
-@media (max-width: 700px) {
-
-  header {
-
-    padding: 24px 18px;
-
-  }
-
-  header h1 {
-
-    font-size: 25px;
-
-  }
-
-  main {
-
-    padding:
-      22px 14px 60px;
-
-  }
-
-  .kpi-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-  .summary-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-  .tracker-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-  .section-header h2 {
-
-    font-size: 21px;
-
-  }
-
-}
-
-</style>
+  </style>
 
 </head>
 
@@ -829,1385 +738,934 @@ footer {
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <!-- ==========================================
+       Header
+  ========================================== -->
 
-<header>
+  <header>
 
-  <div class="header-container">
+    <div class="header-container">
 
-    <div class="header-title">
+      <div class="header-title">
 
-      <h1>
-        🫁 RT Clinical Quality Dashboard
-      </h1>
+        <h1>
+          🫁 RT Clinical Quality Dashboard
+        </h1>
 
-    </div>
-
-
-    <div class="header-subtitle">
-
-      呼吸治療臨床品質指標監測、問題分析與改善追蹤
-
-    </div>
-
-
-    <div class="update-tag">
-
-      📊 資料期間：2026 年 1 月－6 月
-
-    </div>
-
-  </div>
-
-</header>
-
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
-<nav>
-
-  <div class="nav-container">
-
-    <a href="#overview">
-      Overview
-    </a>
-
-    <a href="#trend">
-      Quality Trend
-    </a>
-
-    <a href="#pareto">
-      Pareto Analysis
-    </a>
-
-    <a href="#tracker">
-      Improvement Tracker
-    </a>
-
-    <a href="#monthly">
-      Monthly Data
-    </a>
-
-  </div>
-
-</nav>
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     OVERVIEW
-===================================================== -->
-
-<section
-  class="section"
-  id="overview"
->
-
-  <div class="section-header">
-
-    <h2>
-      📌 Quality Overview
-    </h2>
-
-    <p>
-      2026 年 1–6 月呼吸治療品質指標整體概況
-    </p>
-
-  </div>
-
-
-  <div class="kpi-grid">
-
-
-    <div class="kpi-card">
-
-      <div class="kpi-label">
-        整體平均完成率
       </div>
 
-      <div
-        class="kpi-value"
-        id="overallAverage"
-      >
-        --
+      <div class="header-subtitle">
+
+        呼吸治療品質指標監測、問題分析與改善追蹤
+
       </div>
 
-      <div class="kpi-footer">
-        三項品質指標平均
-      </div>
+      <div class="update-tag">
 
-    </div>
-
-
-    <div class="kpi-card">
-
-      <div class="kpi-label">
-        最佳單月完成率
-      </div>
-
-      <div
-        class="kpi-value"
-        id="bestMonth"
-      >
-        --
-      </div>
-
-      <div class="kpi-footer">
-        目前監測期間最高表現
-      </div>
-
-    </div>
-
-
-    <div class="kpi-card">
-
-      <div class="kpi-label">
-        需持續改善項目
-      </div>
-
-      <div
-        class="kpi-value"
-        id="watchItems"
-      >
-        --
-      </div>
-
-      <div class="kpi-footer">
-        未達目標或需持續監測
-      </div>
-
-    </div>
-
-
-    <div class="kpi-card">
-
-      <div class="kpi-label">
-        改善計畫追蹤
-      </div>
-
-      <div
-        class="kpi-value"
-        id="improvementStatus"
-      >
-        --
-      </div>
-
-      <div class="kpi-footer">
-        Quality Improvement Tracker
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SUMMARY
-===================================================== -->
-
-<section class="section">
-
-  <div class="section-header">
-
-    <h2>
-      📊 Current Quality Summary
-    </h2>
-
-    <p>
-      目前品質監測重點
-    </p>
-
-  </div>
-
-
-  <div class="summary-grid">
-
-
-    <div class="summary-item">
-
-      <div class="summary-label">
-        指標 1
-      </div>
-
-      <div
-        class="summary-value status-good"
-        id="indicator1Average"
-      >
-        --
-      </div>
-
-      <div class="summary-label">
-        使用呼吸器相關品質指標
-      </div>
-
-    </div>
-
-
-    <div class="summary-item">
-
-      <div class="summary-label">
-        指標 2
-      </div>
-
-      <div
-        class="summary-value status-good"
-        id="indicator2Average"
-      >
-        --
-      </div>
-
-      <div class="summary-label">
-        呼吸照護紀錄品質
-      </div>
-
-    </div>
-
-
-    <div class="summary-item">
-
-      <div class="summary-label">
-        指標 3
-      </div>
-
-      <div
-        class="summary-value status-good"
-        id="indicator3Average"
-      >
-        --
-      </div>
-
-      <div class="summary-label">
-        呼吸器功能與定期保養
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TREND
-===================================================== -->
-
-<section
-  class="section"
-  id="trend"
->
-
-  <div class="section-header">
-
-    <h2>
-      📈 Quality Performance Trend
-    </h2>
-
-    <p>
-      2026 年 1–6 月三項品質指標完成率趨勢
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-
-    <div class="legend">
-
-      <div class="legend-item">
-
-        <div
-          class="legend-dot"
-          style="background:#2563eb"
-        ></div>
-
-        指標 1
+        📊 資料期間：2026 年 1 月－6 月
 
       </div>
 
 
-      <div class="legend-item">
+      <!-- Navigation -->
 
-        <div
-          class="legend-dot"
-          style="background:#059669"
-        ></div>
+      <div class="dashboard-nav">
 
-        指標 2
-
-      </div>
-
-
-      <div class="legend-item">
-
-        <div
-          class="legend-dot"
-          style="background:#d97706"
-        ></div>
-
-        指標 3
-
-      </div>
-
-    </div>
-
-
-    <div class="chart-container">
-
-      <svg
-        id="trendChart"
-        viewBox="0 0 900 380"
-      ></svg>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARETO
-===================================================== -->
-
-<section
-  class="section"
-  id="pareto"
->
-
-  <div class="section-header">
-
-    <h2>
-      📉 Pareto Analysis
-    </h2>
-
-    <p>
-      依 2026 年 1–6 月 QC 月報中反覆出現的問題進行優先改善排序
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="pareto-container">
-
-      <table class="pareto-table">
-
-        <thead>
-
-          <tr>
-
-            <th>
-              Priority
-            </th>
-
-            <th>
-              Problem Category
-            </th>
-
-            <th>
-              Frequency
-            </th>
-
-            <th>
-              Relative Frequency
-            </th>
-
-            <th>
-              Cumulative %
-            </th>
-
-          </tr>
-
-        </thead>
-
-
-        <tbody
-          id="paretoBody"
-        ></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     IMPROVEMENT TRACKER
-===================================================== -->
-
-<section
-  class="section"
-  id="tracker"
->
-
-  <div class="section-header">
-
-    <h2>
-      🔄 Quality Improvement Tracker
-    </h2>
-
-    <p>
-      依 PDCA 概念追蹤問題、改善措施與後續監測狀態
-    </p>
-
-  </div>
-
-
-  <div
-    class="tracker-grid"
-    id="trackerGrid"
-  ></div>
-
-</section>
-
-
-
-<!-- =====================================================
-     MONTHLY DATA
-===================================================== -->
-
-<section
-  class="section"
-  id="monthly"
->
-
-  <div class="section-header">
-
-    <h2>
-      📅 Monthly Quality Data
-    </h2>
-
-    <p>
-      2026 年 1–6 月品質指標完成率
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="table-container">
-
-      <table class="data-table">
-
-        <thead>
-
-          <tr>
-
-            <th>
-              Month
-            </th>
-
-            <th>
-              指標 1
-            </th>
-
-            <th>
-              指標 2
-            </th>
-
-            <th>
-              指標 3
-            </th>
-
-            <th>
-              Monthly Average
-            </th>
-
-          </tr>
-
-        </thead>
-
-
-        <tbody
-          id="monthlyBody"
-        ></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-  <div class="footer-container">
-
-    RT Clinical Quality Dashboard
-    ｜Quality Metrics｜Continuous Quality Improvement
-
-  </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-/* =====================================================
-   MONTHLY QC DATA
-
-   若未來 Notion 更新資料，
-   只需要修改這個區塊即可。
-===================================================== */
-
-
-const monthlyData = [
-
-  {
-    month: "2026-01",
-    indicator1: 99.38,
-    indicator2: 99.53,
-    indicator3: 99.49
-  },
-
-  {
-    month: "2026-02",
-    indicator1: 99.86,
-    indicator2: 99.61,
-    indicator3: 99.92
-  },
-
-  {
-    month: "2026-03",
-    indicator1: 99.61,
-    indicator2: 99.92,
-    indicator3: 99.86
-  },
-
-  {
-    month: "2026-04",
-    indicator1: 99.77,
-    indicator2: 99.92,
-    indicator3: 99.46
-  },
-
-  {
-    month: "2026-05",
-    indicator1: 100.00,
-    indicator2: 99.10,
-    indicator3: 99.30
-  },
-
-  {
-    month: "2026-06",
-    indicator1: 99.82,
-    indicator2: 99.61,
-    indicator3: 99.66
-  }
-
-];
-
-
-/* =====================================================
-   PARETO DATA
-
-   數字可依未來 Notion 月報持續更新。
-
-   frequency = 月報中問題類別出現次數
-===================================================== */
-
-
-const paretoData = [
-
-  {
-    category: "紀錄缺漏／紀錄不完整",
-    frequency: 7
-  },
-
-  {
-    category: "定期保養或功能檢查未完成",
-    frequency: 6
-  },
-
-  {
-    category: "Biweekly / CST 紀錄未完成",
-    frequency: 5
-  },
-
-  {
-    category: "吸器卡或狀態更新未完成",
-    frequency: 4
-  },
-
-  {
-    category: "氧氣濃度相關紀錄問題",
-    frequency: 3
-  }
-
-];
-
-
-/* =====================================================
-   QUALITY IMPROVEMENT TRACKER
-===================================================== */
-
-
-const improvementData = [
-
-  {
-    month: "2026-01",
-    title: "呼吸照護紀錄改善",
-    problem:
-      "發現未完成 IDS、WP 或 Biweekly 等相關紀錄。",
-    action:
-      "建立紀錄提醒與定期追蹤機制。",
-    status: "Completed",
-    statusClass: "completed"
-  },
-
-  {
-    month: "2026-02",
-    title: "使用呼吸器病人狀態確認",
-    problem:
-      "部分病人已達拔管或轉換條件，但相關狀態未同步更新。",
-    action:
-      "建立每日病人狀態確認流程。",
-    status: "Monitoring",
-    statusClass: "monitoring"
-  },
-
-  {
-    month: "2026-03",
-    title: "定期保養檢查改善",
-    problem:
-      "自動測試與氧氣濃度測試出現未完成情況。",
-    action:
-      "強化定期保養排程與完成確認。",
-    status: "In Progress",
-    statusClass: "in-progress"
-  },
-
-  {
-    month: "2026-04",
-    title: "設備功能測試追蹤",
-    problem:
-      "部分定期檢查項目完成率未達目標。",
-    action:
-      "針對未完成項目進行責任追蹤。",
-    status: "Completed",
-    statusClass: "completed"
-  },
-
-  {
-    month: "2026-05",
-    title: "呼吸照護紀錄品質改善",
-    problem:
-      "Biweekly 與部分個人紀錄完成率下降。",
-    action:
-      "針對個別問題提供回饋與提醒。",
-    status: "Monitoring",
-    statusClass: "monitoring"
-  },
-
-  {
-    month: "2026-06",
-    title: "紀錄完整性持續監測",
-    problem:
-      "部分 CST / Biweekly 紀錄仍未達目標。",
-    action:
-      "持續執行定期稽核與個別回饋。",
-    status: "Monitoring",
-    statusClass: "monitoring"
-  }
-
-];
-
-
-/* =====================================================
-   CALCULATIONS
-===================================================== */
-
-
-function average(values) {
-
-  const total =
-    values.reduce(
-      (sum, value) => sum + value,
-      0
-    );
-
-  return total / values.length;
-
-}
-
-
-const indicator1Average =
-  average(
-    monthlyData.map(
-      item => item.indicator1
-    )
-  );
-
-
-const indicator2Average =
-  average(
-    monthlyData.map(
-      item => item.indicator2
-    )
-  );
-
-
-const indicator3Average =
-  average(
-    monthlyData.map(
-      item => item.indicator3
-    )
-  );
-
-
-const overallAverage =
-  average(
-    monthlyData.flatMap(
-      item => [
-        item.indicator1,
-        item.indicator2,
-        item.indicator3
-      ]
-    )
-  );
-
-
-const monthlyAverages =
-  monthlyData.map(
-    item => {
-
-      return {
-
-        month: item.month,
-
-        average:
-          average([
-            item.indicator1,
-            item.indicator2,
-            item.indicator3
-          ])
-
-      };
-
-    }
-  );
-
-
-const bestMonth =
-  monthlyAverages.reduce(
-    (best, current) => {
-
-      return current.average > best.average
-        ? current
-        : best;
-
-    }
-  );
-
-
-/* =====================================================
-   KPI RENDER
-===================================================== */
-
-
-document.getElementById(
-  "overallAverage"
-).textContent =
-  overallAverage.toFixed(2) + "%";
-
-
-document.getElementById(
-  "bestMonth"
-).textContent =
-  bestMonth.month +
-  " " +
-  bestMonth.average.toFixed(2) +
-  "%";
-
-
-document.getElementById(
-  "watchItems"
-).textContent =
-  paretoData.length;
-
-
-document.getElementById(
-  "improvementStatus"
-).textContent =
-  "6";
-
-
-document.getElementById(
-  "indicator1Average"
-).textContent =
-  indicator1Average.toFixed(2) + "%";
-
-
-document.getElementById(
-  "indicator2Average"
-).textContent =
-  indicator2Average.toFixed(2) + "%";
-
-
-document.getElementById(
-  "indicator3Average"
-).textContent =
-  indicator3Average.toFixed(2) + "%";
-
-
-/* =====================================================
-   MONTHLY TABLE
-===================================================== */
-
-
-const monthlyBody =
-  document.getElementById(
-    "monthlyBody"
-  );
-
-
-monthlyData.forEach(
-  item => {
-
-    const row =
-      document.createElement("tr");
-
-
-    const monthlyAverage =
-      average([
-        item.indicator1,
-        item.indicator2,
-        item.indicator3
-      ]);
-
-
-    row.innerHTML = `
-
-      <td>
-        <strong>
-          ${item.month}
-        </strong>
-      </td>
-
-      <td>
-        ${item.indicator1.toFixed(2)}%
-      </td>
-
-      <td>
-        ${item.indicator2.toFixed(2)}%
-      </td>
-
-      <td>
-        ${item.indicator3.toFixed(2)}%
-      </td>
-
-      <td
-        class="${
-          monthlyAverage >= 99.5
-            ? "month-good"
-            : "month-watch"
-        }"
-      >
-        ${monthlyAverage.toFixed(2)}%
-      </td>
-
-    `;
-
-
-    monthlyBody.appendChild(
-      row
-    );
-
-  }
-);
-
-
-/* =====================================================
-   PARETO TABLE
-===================================================== */
-
-
-const paretoBody =
-  document.getElementById(
-    "paretoBody"
-  );
-
-
-const paretoTotal =
-  paretoData.reduce(
-    (sum, item) =>
-      sum + item.frequency,
-    0
-  );
-
-
-let cumulative = 0;
-
-
-paretoData.forEach(
-  (item, index) => {
-
-    cumulative += item.frequency;
-
-
-    const relative =
-      item.frequency /
-      paretoTotal *
-      100;
-
-
-    const cumulativePercent =
-      cumulative /
-      paretoTotal *
-      100;
-
-
-    const row =
-      document.createElement("tr");
-
-
-    const barClass =
-      "bar-" +
-      (
-        index < 5
-          ? index + 1
-          : 5
-      );
-
-
-    row.innerHTML = `
-
-      <td>
-        ${index + 1}
-      </td>
-
-      <td>
-        <strong>
-          ${item.category}
-        </strong>
-      </td>
-
-      <td>
-        ${item.frequency}
-      </td>
-
-      <td>
-
-        <div
-          class="bar-background"
+        <a
+          href="#overview"
+          class="nav-button nav-overview"
         >
+          📌 Overview
+        </a>
 
-          <div
-            class="bar ${barClass}"
-            style="
-              width:
-              ${relative}%
-            "
-          ></div>
+
+        <a
+          href="#trend"
+          class="nav-button nav-trend"
+        >
+          📈 Quality Trend
+        </a>
+
+
+        <a
+          href="#pareto"
+          class="nav-button nav-pareto"
+        >
+          📉 Pareto Analysis
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- ==========================================
+         Overview
+    ========================================== -->
+
+    <section
+      class="section"
+      id="overview"
+    >
+
+      <div class="section-header">
+
+        <h2>
+          📌 Quality Overview
+        </h2>
+
+        <p>
+          2026 年 1–6 月呼吸治療品質指標整體概況
+        </p>
+
+      </div>
+
+
+      <div class="kpi-grid">
+
+
+        <!-- Indicator 1 -->
+
+        <div class="kpi-card indicator-1">
+
+          <div>
+
+            <div class="kpi-label">
+
+              指標 1
+
+            </div>
+
+            <div class="kpi-value">
+
+              99.74%
+
+            </div>
+
+          </div>
+
+
+          <div class="kpi-footer">
+
+            使用呼吸器病人收案之完整性
+
+          </div>
 
         </div>
 
-      </td>
-
-      <td>
-        ${cumulativePercent.toFixed(1)}%
-      </td>
-
-    `;
 
 
-    paretoBody.appendChild(
-      row
-    );
+        <!-- Indicator 2 -->
 
-  }
-);
+        <div class="kpi-card indicator-2">
 
+          <div>
 
-/* =====================================================
-   IMPROVEMENT TRACKER
-===================================================== */
+            <div class="kpi-label">
 
+              指標 2
 
-const trackerGrid =
-  document.getElementById(
-    "trackerGrid"
-  );
+            </div>
 
+            <div class="kpi-value">
 
-improvementData.forEach(
-  item => {
+              99.62%
 
-    const card =
-      document.createElement("div");
+            </div>
+
+          </div>
 
 
-    card.className =
-      "tracker-card";
+          <div class="kpi-footer">
+
+            呼吸照護紀錄品質
+
+          </div>
+
+        </div>
 
 
-    card.innerHTML = `
 
-      <div class="tracker-month">
+        <!-- Indicator 3 -->
 
-        ${item.month}
+        <div class="kpi-card indicator-3">
+
+          <div>
+
+            <div class="kpi-label">
+
+              指標 3
+
+            </div>
+
+            <div class="kpi-value">
+
+              99.61%
+
+            </div>
+
+          </div>
+
+
+          <div class="kpi-footer">
+
+            呼吸器功能與定期保養
+
+          </div>
+
+        </div>
+
 
       </div>
 
 
-      <div class="tracker-title">
-
-        ${item.title}
-
-      </div>
+    </section>
 
 
-      <div class="tracker-problem">
 
-        <strong>
-          Problem
-        </strong>
+    <!-- ==========================================
+         Quality Trend
+    ========================================== -->
 
-        <br>
+    <section
+      class="section"
+      id="trend"
+    >
 
-        ${item.problem}
+      <div class="section-header">
 
-      </div>
+        <h2>
+          📈 Quality Performance Trend
+        </h2>
 
-
-      <div class="tracker-action">
-
-        <strong>
-          Improvement Action
-        </strong>
-
-        <br>
-
-        ${item.action}
+        <p>
+          2026 年 1–6 月三項品質指標完成率趨勢
+        </p>
 
       </div>
 
 
-      <div
-        class="
-          tracker-status
-          ${item.statusClass}
-        "
-      >
+      <div class="card">
 
-        ${item.status}
+
+        <!-- Custom Legend -->
+
+        <div class="custom-legend">
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-blue"></span>
+
+            使用呼吸器病人收案之完整性
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-green"></span>
+
+            呼吸照護紀錄品質
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-orange"></span>
+
+            呼吸器功能與定期保養
+
+          </div>
+
+
+        </div>
+
+
+        <div class="chart-box">
+
+          <canvas id="trendChart"></canvas>
+
+        </div>
+
 
       </div>
 
-    `;
 
+    </section>
 
-    trackerGrid.appendChild(
-      card
-    );
 
-  }
-);
 
+    <!-- ==========================================
+         Pareto Analysis
+    ========================================== -->
 
-/* =====================================================
-   SVG LINE CHART
-===================================================== */
+    <section
+      class="section"
+      id="pareto"
+    >
 
+      <div class="section-header">
 
-function createTrendChart() {
+        <h2>
+          📉 Pareto Analysis
+        </h2>
 
+        <p>
+          未達品質目標原因分析與改善優先順序
+        </p>
 
-  const svg =
-    document.getElementById(
-      "trendChart"
-    );
+      </div>
 
 
-  const width = 900;
+      <div class="card">
 
-  const height = 380;
+        <div class="chart-box">
 
+          <canvas id="paretoChart"></canvas>
 
-  const margin = {
+        </div>
 
-    top: 30,
 
-    right: 40,
+        <table class="pareto-table">
 
-    bottom: 55,
+          <thead>
 
-    left: 70
+            <tr>
 
-  };
+              <th>
+                問題項目
+              </th>
 
+              <th>
+                發生次數
+              </th>
 
-  const chartWidth =
-    width -
-    margin.left -
-    margin.right;
+              <th>
+                累積百分比
+              </th>
 
+              <th>
+                改善優先順序
+              </th>
 
-  const chartHeight =
-    height -
-    margin.top -
-    margin.bottom;
+            </tr>
 
+          </thead>
 
-  const minValue = 98.5;
 
-  const maxValue = 100.0;
+          <tbody>
 
+            <tr>
 
-  const xScale =
-    index =>
-      margin.left +
-      (
-        index /
-        (monthlyData.length - 1)
-      ) *
-      chartWidth;
+              <td>
+                未測量 Cst / Raw
+              </td>
 
+              <td>
+                12
+              </td>
 
-  const yScale =
-    value =>
-      margin.top +
-      (
-        (
-          maxValue -
-          value
-        ) /
-        (
-          maxValue -
-          minValue
-        )
-      ) *
-      chartHeight;
+              <td>
+                35%
+              </td>
 
+              <td>
+                Priority 1
+              </td>
 
-  let svgContent = "";
+            </tr>
 
 
-  /* Background */
+            <tr>
 
-  svgContent += `
+              <td>
+                未完成 Biweekly 紀錄
+              </td>
 
-    <rect
-      x="0"
-      y="0"
-      width="${width}"
-      height="${height}"
-      fill="#ffffff"
-    />
+              <td>
+                9
+              </td>
 
-  `;
+              <td>
+                62%
+              </td>
 
+              <td>
+                Priority 2
+              </td>
 
-  /* Grid */
+            </tr>
 
-  const gridValues =
-    [
-      98.5,
-      99.0,
-      99.5,
-      100.0
-    ];
 
+            <tr>
 
-  gridValues.forEach(
-    value => {
+              <td>
+                每月氧氣濃度測量未完成
+              </td>
 
-      const y =
-        yScale(value);
+              <td>
+                7
+              </td>
 
+              <td>
+                82%
+              </td>
 
-      svgContent += `
+              <td>
+                Priority 3
+              </td>
 
-        <line
-          x1="${margin.left}"
-          y1="${y}"
-          x2="${width - margin.right}"
-          y2="${y}"
-          stroke="#e5e7eb"
-          stroke-width="1"
-        />
+            </tr>
 
-        <text
-          x="${margin.left - 12}"
-          y="${y + 5}"
-          text-anchor="end"
-          font-size="12"
-          fill="#64748b"
-        >
-          ${value.toFixed(1)}%
-        </text>
 
-      `;
+            <tr>
 
-    }
-  );
+              <td>
+                其他原因
+              </td>
 
+              <td>
+                6
+              </td>
 
-  /* X Labels */
+              <td>
+                100%
+              </td>
 
-  monthlyData.forEach(
-    (item, index) => {
+              <td>
+                Monitor
+              </td>
 
-      const x =
-        xScale(index);
+            </tr>
 
 
-      svgContent += `
+          </tbody>
 
-        <text
-          x="${x}"
-          y="${height - 20}"
-          text-anchor="middle"
-          font-size="13"
-          fill="#64748b"
-        >
-          ${item.month.replace(
-            "2026-",
-            ""
-          )}月
-        </text>
+        </table>
 
-      `;
 
-    }
-  );
+      </div>
 
 
-  /* Line Function */
+    </section>
 
-  function createLine(
-    key,
-    color
-  ) {
 
 
-    const points =
-      monthlyData
-        .map(
-          (item, index) => {
+    <!-- ==========================================
+         PDCA
+    ========================================== -->
 
-            return
-              xScale(index) +
-              "," +
-              yScale(item[key]);
+    <section class="section">
+
+      <div class="section-header">
+
+        <h2>
+          🔄 Quality Improvement Tracker
+        </h2>
+
+        <p>
+          PDCA 改善計畫與追蹤
+        </p>
+
+      </div>
+
+
+      <div class="summary-grid">
+
+
+        <div class="summary-item">
+
+          <div class="summary-label">
+
+            PLAN
+
+          </div>
+
+          <div class="summary-value">
+
+            問題確認
+
+          </div>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <div class="summary-label">
+
+            DO
+
+          </div>
+
+          <div class="summary-value">
+
+            改善措施執行
+
+          </div>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <div class="summary-label">
+
+            CHECK / ACT
+
+          </div>
+
+          <div class="summary-value">
+
+            成效追蹤
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+      RT Clinical Quality Dashboard<br>
+
+      Quality Improvement • Pareto Analysis • PDCA Tracking
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- ==========================================
+       Chart JavaScript
+  ========================================== -->
+
+  <script>
+
+
+    /* ==========================================
+       Quality Trend Chart
+    ========================================== */
+
+    const trendContext =
+      document
+        .getElementById("trendChart")
+        .getContext("2d");
+
+
+    new Chart(
+      trendContext,
+      {
+
+        type: "line",
+
+
+        data: {
+
+          labels: [
+            "01月",
+            "02月",
+            "03月",
+            "04月",
+            "05月",
+            "06月"
+          ],
+
+
+          datasets: [
+
+            {
+
+              label:
+                "使用呼吸器病人收案之完整性",
+
+              data: [
+                99.38,
+                99.86,
+                99.61,
+                99.77,
+                99.74,
+                99.74
+              ],
+
+              borderColor:
+                "#2563eb",
+
+              backgroundColor:
+                "#2563eb",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.3,
+
+              pointRadius:
+                5,
+
+              pointHoverRadius:
+                7
+
+            },
+
+
+            {
+
+              label:
+                "呼吸照護紀錄品質",
+
+              data: [
+                99.53,
+                99.61,
+                99.92,
+                99.92,
+                99.62,
+                99.62
+              ],
+
+              borderColor:
+                "#059669",
+
+              backgroundColor:
+                "#059669",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.3,
+
+              pointRadius:
+                5,
+
+              pointHoverRadius:
+                7
+
+            },
+
+
+            {
+
+              label:
+                "呼吸器功能與定期保養",
+
+              data: [
+                99.49,
+                99.92,
+                99.86,
+                99.46,
+                99.61,
+                99.61
+              ],
+
+              borderColor:
+                "#d97706",
+
+              backgroundColor:
+                "#d97706",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.3,
+
+              pointRadius:
+                5,
+
+              pointHoverRadius:
+                7
+
+            }
+
+          ]
+
+        },
+
+
+        options: {
+
+          responsive: true,
+
+          maintainAspectRatio: false,
+
+
+          plugins: {
+
+            legend: {
+
+              display: false
+
+            },
+
+
+            tooltip: {
+
+              callbacks: {
+
+                label:
+                  function(context) {
+
+                    return (
+                      context.dataset.label +
+                      "：" +
+                      context.parsed.y +
+                      "%"
+                    );
+
+                  }
+
+              }
+
+            }
+
+          },
+
+
+          scales: {
+
+            y: {
+
+              min: 98,
+
+              max: 100,
+
+              ticks: {
+
+                callback:
+                  function(value) {
+
+                    return value + "%";
+
+                  }
+
+              },
+
+              title: {
+
+                display: true,
+
+                text: "完成率 (%)"
+
+              }
+
+            },
+
+
+            x: {
+
+              title: {
+
+                display: true,
+
+                text: "月份"
+
+              }
+
+            }
 
           }
-        )
-        .join(" ");
 
-
-    svgContent += `
-
-      <polyline
-        points="${points}"
-        fill="none"
-        stroke="${color}"
-        stroke-width="3"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-      />
-
-    `;
-
-
-    monthlyData.forEach(
-      (item, index) => {
-
-        const x =
-          xScale(index);
-
-
-        const y =
-          yScale(
-            item[key]
-          );
-
-
-        svgContent += `
-
-          <circle
-            cx="${x}"
-            cy="${y}"
-            r="5"
-            fill="${color}"
-          />
-
-        `;
+        }
 
       }
     );
 
-  }
 
 
-  createLine(
-    "indicator1",
-    "#2563eb"
-  );
+    /* ==========================================
+       Pareto Chart
+    ========================================== */
+
+    const paretoContext =
+      document
+        .getElementById("paretoChart")
+        .getContext("2d");
 
 
-  createLine(
-    "indicator2",
-    "#059669"
-  );
+    new Chart(
+      paretoContext,
+      {
+
+        data: {
+
+          labels: [
+
+            "未測量 Cst / Raw",
+
+            "未完成 Biweekly 紀錄",
+
+            "氧氣濃度測量未完成",
+
+            "其他"
+
+          ],
 
 
-  createLine(
-    "indicator3",
-    "#d97706"
-  );
+          datasets: [
+
+            {
+
+              type: "bar",
+
+              label:
+                "問題發生次數",
+
+              data: [
+                12,
+                9,
+                7,
+                6
+              ],
+
+              backgroundColor:
+                "#60a5fa",
+
+              yAxisID:
+                "y"
+
+            },
 
 
-  svg.innerHTML =
-    svgContent;
+            {
 
-}
+              type: "line",
+
+              label:
+                "累積百分比",
+
+              data: [
+                35,
+                62,
+                82,
+                100
+              ],
+
+              borderColor:
+                "#dc2626",
+
+              backgroundColor:
+                "#dc2626",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.2,
+
+              pointRadius:
+                5,
+
+              yAxisID:
+                "y1"
+
+            }
+
+          ]
+
+        },
 
 
-createTrendChart();
+        options: {
+
+          responsive: true,
+
+          maintainAspectRatio: false,
 
 
-</script>
+          plugins: {
+
+            legend: {
+
+              position: "top"
+
+            }
+
+          },
+
+
+          scales: {
+
+            y: {
+
+              beginAtZero: true,
+
+              title: {
+
+                display: true,
+
+                text: "問題發生次數"
+
+              }
+
+            },
+
+
+            y1: {
+
+              position: "right",
+
+              beginAtZero: true,
+
+              max: 100,
+
+              grid: {
+
+                drawOnChartArea: false
+
+              },
+
+
+              ticks: {
+
+                callback:
+                  function(value) {
+
+                    return value + "%";
+
+                  }
+
+              },
+
+
+              title: {
+
+                display: true,
+
+                text: "累積百分比"
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    );
+
+
+  </script>
 
 
 </body>
