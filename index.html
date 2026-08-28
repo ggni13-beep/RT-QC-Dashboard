@@ -29,6 +29,7 @@
     }
 
     body {
+
       margin: 0;
 
       font-family:
@@ -42,6 +43,7 @@
       color: #1f2937;
 
       line-height: 1.6;
+
     }
 
 
@@ -50,22 +52,27 @@
     ========================================== */
 
     header {
-      background: white;
+
+      background: #ffffff;
 
       border-bottom:
         1px solid #e5e7eb;
 
       padding:
-        30px 20px 24px;
+        32px 20px;
+
     }
 
     .header-container {
+
       max-width: 1250px;
 
       margin: auto;
+
     }
 
     .header-title {
+
       display: flex;
 
       align-items: center;
@@ -73,31 +80,39 @@
       gap: 12px;
 
       flex-wrap: wrap;
+
     }
 
     header h1 {
+
       margin: 0;
 
       font-size: 30px;
 
+      font-weight: 700;
+
       color: #1e293b;
+
     }
 
     .header-subtitle {
+
       margin-top: 8px;
 
       color: #64748b;
 
-      font-size: 15px;
+      font-size: 16px;
+
     }
 
     .update-tag {
+
       display: inline-block;
 
-      margin-top: 14px;
+      margin-top: 16px;
 
       padding:
-        7px 14px;
+        8px 16px;
 
       border-radius: 999px;
 
@@ -105,66 +120,8 @@
 
       color: #475569;
 
-      font-size: 13px;
-
-      font-weight: 600;
-    }
-
-
-    /* ==========================================
-       Navigation
-    ========================================== */
-
-    .nav-wrapper {
-      background: white;
-
-      border-bottom:
-        1px solid #e5e7eb;
-
-      position: sticky;
-
-      top: 0;
-
-      z-index: 100;
-    }
-
-    .nav {
-      max-width: 1250px;
-
-      margin: auto;
-
-      display: flex;
-
-      gap: 10px;
-
-      padding: 12px 18px;
-
-      overflow-x: auto;
-    }
-
-    .nav a {
-      text-decoration: none;
-
-      color: #475569;
-
-      white-space: nowrap;
-
-      padding:
-        9px 16px;
-
-      border-radius: 10px;
-
       font-size: 14px;
 
-      font-weight: 600;
-
-      transition: 0.2s;
-    }
-
-    .nav a:hover {
-      background: #eef2f7;
-
-      color: #1e293b;
     }
 
 
@@ -173,12 +130,108 @@
     ========================================== */
 
     main {
+
       max-width: 1250px;
 
       margin: auto;
 
       padding:
-        28px 18px 70px;
+        30px 18px 70px;
+
+    }
+
+
+    /* ==========================================
+       Navigation
+    ========================================== */
+
+    .dashboard-nav {
+
+      display: flex;
+
+      gap: 14px;
+
+      flex-wrap: wrap;
+
+      margin-top: 28px;
+
+    }
+
+    .nav-button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-decoration: none;
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      padding:
+        13px 22px;
+
+      border-radius: 14px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    }
+
+    .nav-button:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.12);
+
+    }
+
+
+    /* Overview */
+
+    .nav-overview {
+
+      background: #e8f0fe;
+
+      color: #1d4ed8;
+
+      border:
+        1px solid #bfdbfe;
+
+    }
+
+
+    /* Quality Trend */
+
+    .nav-trend {
+
+      background: #e8f7ef;
+
+      color: #047857;
+
+      border:
+        1px solid #a7f3d0;
+
+    }
+
+
+    /* Pareto */
+
+    .nav-pareto {
+
+      background: #fff3e6;
+
+      color: #c2410c;
+
+      border:
+        1px solid #fed7aa;
+
     }
 
 
@@ -187,27 +240,35 @@
     ========================================== */
 
     .section {
-      margin-top: 45px;
+
+      margin-top: 55px;
+
     }
 
     .section-header {
-      margin-bottom: 18px;
+
+      margin-bottom: 20px;
+
     }
 
     .section-header h2 {
-      margin: 0 0 5px;
 
-      font-size: 27px;
+      margin: 0 0 6px 0;
+
+      font-size: 30px;
 
       color: #1e293b;
+
     }
 
     .section-header p {
+
       margin: 0;
+
+      font-size: 17px;
 
       color: #64748b;
 
-      font-size: 15px;
     }
 
 
@@ -216,167 +277,7 @@
     ========================================== */
 
     .card {
-      background: white;
 
-      border:
-        1px solid #e5e7eb;
-
-      border-radius: 18px;
-
-      padding: 24px;
-
-      box-shadow:
-        0 2px 10px rgba(15, 23, 42, 0.04);
-    }
-
-
-    /* ==========================================
-       KPI Summary
-    ========================================== */
-
-    .kpi-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 16px;
-    }
-
-    .kpi-card {
-      background: white;
-
-      border:
-        1px solid #e5e7eb;
-
-      border-radius: 18px;
-
-      padding: 22px;
-
-      min-height: 160px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: space-between;
-
-      box-shadow:
-        0 2px 8px rgba(15, 23, 42, 0.04);
-    }
-
-    .kpi-label {
-      color: #64748b;
-
-      font-size: 14px;
-
-      font-weight: 600;
-    }
-
-    .kpi-value {
-      font-size: 36px;
-
-      font-weight: 700;
-
-      color: #1e293b;
-
-      margin: 8px 0;
-    }
-
-    .kpi-footer {
-      color: #64748b;
-
-      font-size: 13px;
-    }
-
-
-    /* ==========================================
-       Status Summary
-    ========================================== */
-
-    .status-good {
-      color: #047857;
-    }
-
-    .status-watch {
-      color: #b45309;
-    }
-
-    .status-alert {
-      color: #dc2626;
-    }
-
-
-    /* ==========================================
-       Status Cards
-    ========================================== */
-
-    .status-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 16px;
-
-      margin-top: 18px;
-    }
-
-    .status-card {
-      border-radius: 18px;
-
-      padding: 22px;
-
-      border: 1px solid;
-    }
-
-    .status-card.blue {
-      background: #eff6ff;
-
-      border-color: #bfdbfe;
-    }
-
-    .status-card.yellow {
-      background: #fffbeb;
-
-      border-color: #fde68a;
-    }
-
-    .status-card.green {
-      background: #ecfdf5;
-
-      border-color: #a7f3d0;
-    }
-
-    .status-number {
-      font-size: 30px;
-
-      font-weight: 700;
-
-      margin-top: 5px;
-    }
-
-    .status-label {
-      font-size: 14px;
-
-      color: #64748b;
-    }
-
-
-    /* ==========================================
-       Quality Indicator Cards
-    ========================================== */
-
-    .indicator-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 18px;
-    }
-
-    .indicator-card {
       background: white;
 
       border:
@@ -387,104 +288,174 @@
       padding: 24px;
 
       box-shadow:
-        0 2px 10px rgba(15, 23, 42, 0.04);
+        0 4px 15px rgba(15, 23, 42, 0.04);
+
+    }
+
+
+    /* ==========================================
+       KPI
+    ========================================== */
+
+    .kpi-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+
+    }
+
+    .kpi-card {
+
+      background: white;
+
+      border:
+        1px solid #e5e7eb;
+
+      border-radius: 20px;
+
+      padding: 24px;
+
+      min-height: 220px;
 
       display: flex;
 
       flex-direction: column;
 
-      min-height: 300px;
-    }
-
-    .indicator-top {
-      display: flex;
-
-      align-items: center;
-
       justify-content: space-between;
 
-      gap: 12px;
+      box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.04);
+
     }
 
-    .indicator-number {
-      font-size: 14px;
-
-      font-weight: 700;
+    .kpi-label {
 
       color: #64748b;
+
+      font-size: 18px;
+
     }
 
-    .indicator-status {
-      padding:
-        6px 12px;
+    .kpi-value {
 
-      border-radius: 999px;
-
-      font-size: 13px;
-
-      font-weight: 700;
-    }
-
-    .indicator-status.blue {
-      background: #dbeafe;
-
-      color: #1d4ed8;
-    }
-
-    .indicator-status.yellow {
-      background: #fef3c7;
-
-      color: #92400e;
-    }
-
-    .indicator-status.green {
-      background: #d1fae5;
-
-      color: #047857;
-    }
-
-    .indicator-card h3 {
-      margin:
-        24px 0 16px;
-
-      font-size: 21px;
-
-      line-height: 1.5;
-
-      color: #1e293b;
-    }
-
-    .indicator-value {
       font-size: 42px;
 
       font-weight: 700;
 
-      color: #1e293b;
+      margin:
+        16px 0;
 
-      margin-top: auto;
     }
 
-    .indicator-description {
+    .kpi-footer {
+
+      font-size: 18px;
+
       color: #64748b;
 
-      font-size: 14px;
+      line-height: 1.6;
 
-      margin-top: 5px;
     }
 
-    .indicator-divider {
-      height: 1px;
 
-      background: #e5e7eb;
+    /* KPI 1 */
 
-      margin:
-        20px 0;
+    .indicator-1 {
+
+      border-top:
+        6px solid #2563eb;
+
     }
 
-    .indicator-footer {
-      font-size: 14px;
+    .indicator-1 .kpi-value {
 
-      font-weight: 600;
+      color: #2563eb;
+
+    }
+
+
+    /* KPI 2 */
+
+    .indicator-2 {
+
+      border-top:
+        6px solid #059669;
+
+    }
+
+    .indicator-2 .kpi-value {
+
+      color: #047857;
+
+    }
+
+
+    /* KPI 3 */
+
+    .indicator-3 {
+
+      border-top:
+        6px solid #d97706;
+
+    }
+
+    .indicator-3 .kpi-value {
+
+      color: #c2410c;
+
+    }
+
+
+    /* ==========================================
+       Summary
+    ========================================== */
+
+    .summary-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+
+    }
+
+    .summary-item {
+
+      padding: 20px;
+
+      border-radius: 16px;
+
+      background: #f8fafc;
+
+      border:
+        1px solid #e5e7eb;
+
+    }
+
+    .summary-label {
+
+      color: #64748b;
+
+      font-size: 15px;
+
+    }
+
+    .summary-value {
+
+      font-size: 30px;
+
+      font-weight: 700;
+
+      margin-top: 6px;
+
+      color: #1e293b;
+
     }
 
 
@@ -492,210 +463,126 @@
        Chart
     ========================================== */
 
-    .chart-card {
-      background: white;
-
-      border:
-        1px solid #e5e7eb;
-
-      border-radius: 20px;
-
-      padding: 24px;
-
-      box-shadow:
-        0 2px 10px rgba(15, 23, 42, 0.04);
-    }
-
     .chart-box {
+
       position: relative;
 
-      height: 400px;
+      width: 100%;
+
+      height: 430px;
+
     }
 
 
     /* ==========================================
-       Monthly Focus
+       Custom Legend
     ========================================== */
 
-    .focus-grid {
-      display: grid;
+    .custom-legend {
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      display: flex;
 
-      gap: 16px;
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      margin-bottom: 20px;
+
     }
 
-    .focus-card {
-      border-radius: 18px;
+    .legend-item {
 
-      padding: 22px;
-
-      border:
-        1px solid #e5e7eb;
-
-      background: white;
-    }
-
-    .focus-icon {
-      font-size: 25px;
-
-      margin-bottom: 10px;
-    }
-
-    .focus-card h3 {
-      margin: 0 0 8px;
-
-      font-size: 18px;
-    }
-
-    .focus-card p {
-      margin: 0;
-
-      color: #64748b;
-
-      font-size: 14px;
-    }
-
-
-    /* ==========================================
-       PDCA Tracker
-    ========================================== */
-
-    .pdca-container {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 16px;
-    }
-
-    .pdca-card {
-      position: relative;
-
-      border-radius: 18px;
-
-      padding: 22px;
-
-      border:
-        1px solid #e5e7eb;
-
-      background: white;
-
-      min-height: 190px;
-    }
-
-    .pdca-step {
-      display: inline-flex;
+      display: flex;
 
       align-items: center;
 
-      justify-content: center;
+      gap: 10px;
 
-      width: 42px;
+      padding:
+        10px 16px;
 
-      height: 42px;
+      border-radius: 12px;
 
-      border-radius: 50%;
-
-      font-weight: 700;
-
-      margin-bottom: 15px;
-    }
-
-    .plan .pdca-step {
-      background: #dbeafe;
-
-      color: #1d4ed8;
-    }
-
-    .do .pdca-step {
-      background: #fef3c7;
-
-      color: #92400e;
-    }
-
-    .check .pdca-step {
-      background: #d1fae5;
-
-      color: #047857;
-    }
-
-    .act .pdca-step {
-      background: #ede9fe;
-
-      color: #6d28d9;
-    }
-
-    .pdca-card h3 {
-      margin: 0 0 10px;
-
-      font-size: 20px;
-
-      color: #1e293b;
-    }
-
-    .pdca-card p {
-      margin: 0;
-
-      color: #64748b;
-
-      font-size: 14px;
-    }
-
-
-    /* ==========================================
-       Monthly Report
-    ========================================== */
-
-    details {
-      background: white;
+      background: #f8fafc;
 
       border:
         1px solid #e5e7eb;
 
-      border-radius: 18px;
-
-      padding: 20px 24px;
-
-      margin-bottom: 14px;
-
-      box-shadow:
-        0 2px 8px rgba(15, 23, 42, 0.03);
-    }
-
-    summary {
-      cursor: pointer;
-
-      font-size: 17px;
-
-      font-weight: 700;
-
-      color: #1e293b;
-    }
-
-    .report-content {
-      padding-top: 20px;
+      font-size: 15px;
 
       color: #475569;
+
+      font-weight: 600;
+
     }
 
-    .report-content h4 {
-      color: #1e293b;
+    .legend-dot {
 
-      margin:
-        20px 0 8px;
+      width: 14px;
+
+      height: 14px;
+
+      border-radius: 50%;
+
+      flex-shrink: 0;
+
     }
 
-    .report-content ul {
-      padding-left: 20px;
+    .dot-blue {
 
-      margin-top: 8px;
+      background: #2563eb;
+
     }
 
-    .report-content li {
-      margin-bottom: 8px;
+    .dot-green {
+
+      background: #059669;
+
+    }
+
+    .dot-orange {
+
+      background: #d97706;
+
+    }
+
+
+    /* ==========================================
+       Pareto
+    ========================================== */
+
+    .pareto-table {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      margin-top: 25px;
+
+    }
+
+    .pareto-table th {
+
+      background: #f8fafc;
+
+      color: #475569;
+
+      text-align: left;
+
+      padding: 12px;
+
+      border-bottom:
+        1px solid #e5e7eb;
+
+    }
+
+    .pareto-table td {
+
+      padding: 13px;
+
+      border-bottom:
+        1px solid #eef2f7;
+
     }
 
 
@@ -704,50 +591,41 @@
     ========================================== */
 
     footer {
-      background: white;
+
+      margin-top: 70px;
+
+      padding-top: 30px;
 
       border-top:
         1px solid #e5e7eb;
 
+      color: #94a3b8;
+
+      font-size: 14px;
+
       text-align: center;
 
-      padding: 24px;
-
-      color: #64748b;
-
-      font-size: 13px;
     }
 
 
     /* ==========================================
-       Mobile
+       Responsive
     ========================================== */
 
-    @media (max-width: 950px) {
+    @media (max-width: 900px) {
 
       .kpi-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
 
-      .indicator-grid {
         grid-template-columns:
           1fr;
+
       }
 
-      .status-grid {
+      .summary-grid {
+
         grid-template-columns:
           1fr;
-      }
 
-      .focus-grid {
-        grid-template-columns:
-          1fr;
-      }
-
-      .pdca-container {
-        grid-template-columns:
-          repeat(2, 1fr);
       }
 
     }
@@ -756,53 +634,98 @@
     @media (max-width: 600px) {
 
       header {
+
         padding:
-          24px 18px 20px;
+          24px 18px;
+
       }
 
       header h1 {
-        font-size: 25px;
-      }
 
-      .section-header h2 {
         font-size: 25px;
+
       }
 
       main {
+
         padding:
-          20px 14px 50px;
+          25px 14px 60px;
+
       }
 
-      .kpi-grid {
-        grid-template-columns:
-          1fr;
+      .section {
+
+        margin-top: 45px;
+
       }
 
-      .pdca-container {
+      .section-header h2 {
+
+        font-size: 25px;
+
+      }
+
+      .dashboard-nav {
+
+        display: grid;
+
         grid-template-columns:
           1fr;
+
+      }
+
+      .nav-button {
+
+        width: 100%;
+
+      }
+
+      .card {
+
+        padding: 18px;
+
+      }
+
+      .kpi-card {
+
+        min-height: 200px;
+
+        padding: 22px;
+
       }
 
       .kpi-value {
-        font-size: 34px;
+
+        font-size: 38px;
+
       }
 
-      .indicator-value {
-        font-size: 40px;
+      .kpi-footer {
+
+        font-size: 17px;
+
       }
 
       .chart-box {
-        height: 320px;
+
+        height: 430px;
+
       }
 
-      .nav {
-        padding:
-          10px 12px;
+      .custom-legend {
+
+        flex-direction: column;
+
+        gap: 10px;
+
       }
 
-      .nav a {
-        padding:
-          8px 13px;
+      .legend-item {
+
+        width: 100%;
+
+        font-size: 14px;
+
       }
 
     }
@@ -825,16 +748,11 @@
 
       <div class="header-title">
 
-        <span style="font-size:34px;">
-          🫁
-        </span>
-
         <h1>
-          RT Clinical Quality Dashboard
+          🫁 RT Clinical Quality Dashboard
         </h1>
 
       </div>
-
 
       <div class="header-subtitle">
 
@@ -842,50 +760,45 @@
 
       </div>
 
-
       <div class="update-tag">
 
-        📊 資料期間：2026 年 1 月
+        📊 資料期間：2026 年 1 月－6 月
+
+      </div>
+
+
+      <!-- Navigation -->
+
+      <div class="dashboard-nav">
+
+        <a
+          href="#overview"
+          class="nav-button nav-overview"
+        >
+          📌 Overview
+        </a>
+
+
+        <a
+          href="#trend"
+          class="nav-button nav-trend"
+        >
+          📈 Quality Trend
+        </a>
+
+
+        <a
+          href="#pareto"
+          class="nav-button nav-pareto"
+        >
+          📉 Pareto Analysis
+        </a>
 
       </div>
 
     </div>
 
   </header>
-
-
-
-  <!-- ==========================================
-       Navigation
-  ========================================== -->
-
-  <div class="nav-wrapper">
-
-    <div class="nav">
-
-      <a href="#overview">
-        Overview
-      </a>
-
-      <a href="#indicators">
-        Quality Indicators
-      </a>
-
-      <a href="#trend">
-        Quality Trend
-      </a>
-
-      <a href="#pdca">
-        PDCA Tracker
-      </a>
-
-      <a href="#report">
-        Monthly Report
-      </a>
-
-    </div>
-
-  </div>
 
 
 
@@ -908,224 +821,40 @@
         </h2>
 
         <p>
-          2026 年 1 月呼吸治療品質指標整體概況
+          2026 年 1–6 月呼吸治療品質指標整體概況
         </p>
 
       </div>
 
-
-      <!-- KPI -->
 
       <div class="kpi-grid">
 
 
-        <div class="kpi-card">
-
-          <div class="kpi-label">
-            整體平均完成率
-          </div>
-
-          <div class="kpi-value">
-            99.66%
-          </div>
-
-          <div class="kpi-footer">
-            三項品質指標平均
-          </div>
-
-        </div>
-
-
-
-        <div class="kpi-card">
-
-          <div class="kpi-label">
-            品質指標數
-          </div>
-
-          <div class="kpi-value">
-            3
-          </div>
-
-          <div class="kpi-footer">
-            持續進行品質監測
-          </div>
-
-        </div>
-
-
-
-        <div class="kpi-card">
-
-          <div class="kpi-label">
-            達標指標
-          </div>
-
-          <div
-            class="kpi-value status-good"
-          >
-            3 / 3
-          </div>
-
-          <div class="kpi-footer">
-            達成既定品質目標
-          </div>
-
-        </div>
-
-
-
-        <div class="kpi-card">
-
-          <div class="kpi-label">
-            改善狀態
-          </div>
-
-          <div
-            class="kpi-value status-watch"
-          >
-            追蹤中
-          </div>
-
-          <div class="kpi-footer">
-            持續執行 PDCA 改善
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- Status Summary -->
-
-      <div class="status-grid">
-
-
-        <div class="status-card blue">
-
-          <div class="status-label">
-            🔵 PLAN
-          </div>
-
-          <div class="status-number">
-            1 項
-          </div>
-
-          <div class="status-label">
-            問題持續監測
-          </div>
-
-        </div>
-
-
-
-        <div class="status-card yellow">
-
-          <div class="status-label">
-            🟡 DO
-          </div>
-
-          <div class="status-number">
-            2 項
-          </div>
-
-          <div class="status-label">
-            改善措施執行中
-          </div>
-
-        </div>
-
-
-
-        <div class="status-card green">
-
-          <div class="status-label">
-            🟢 CHECK / ACT
-          </div>
-
-          <div class="status-number">
-            3 項
-          </div>
-
-          <div class="status-label">
-            持續成效追蹤
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ==========================================
-         Quality Indicators
-    ========================================== -->
-
-    <section
-      class="section"
-      id="indicators"
-    >
-
-      <div class="section-header">
-
-        <h2>
-          🎯 Current Quality Summary
-        </h2>
-
-        <p>
-          三項呼吸治療核心品質指標
-        </p>
-
-      </div>
-
-
-      <div class="indicator-grid">
-
-
         <!-- Indicator 1 -->
 
-        <div class="indicator-card">
+        <div class="kpi-card indicator-1">
 
-          <div class="indicator-top">
+          <div>
 
-            <div class="indicator-number">
+            <div class="kpi-label">
+
               指標 1
+
             </div>
 
-            <div class="indicator-status blue">
-              🔵 持續監測
+            <div class="kpi-value">
+
+              99.74%
+
             </div>
 
           </div>
 
 
-          <h3>
+          <div class="kpi-footer">
+
             使用呼吸器病人收案之完整性
-          </h3>
 
-
-          <div class="indicator-value">
-            99.74%
-          </div>
-
-
-          <div class="indicator-description">
-            使用呼吸器病人收案資料完整性
-          </div>
-
-
-          <div class="indicator-divider"></div>
-
-
-          <div
-            class="indicator-footer status-good"
-          >
-            ✓ 品質表現穩定
           </div>
 
         </div>
@@ -1134,43 +863,29 @@
 
         <!-- Indicator 2 -->
 
-        <div class="indicator-card">
+        <div class="kpi-card indicator-2">
 
-          <div class="indicator-top">
+          <div>
 
-            <div class="indicator-number">
+            <div class="kpi-label">
+
               指標 2
+
             </div>
 
-            <div class="indicator-status yellow">
-              🟡 改善追蹤
+            <div class="kpi-value">
+
+              99.62%
+
             </div>
 
           </div>
 
 
-          <h3>
+          <div class="kpi-footer">
+
             呼吸照護紀錄品質
-          </h3>
 
-
-          <div class="indicator-value">
-            99.62%
-          </div>
-
-
-          <div class="indicator-description">
-            Flow sheet 與 Progress note 品質監測
-          </div>
-
-
-          <div class="indicator-divider"></div>
-
-
-          <div
-            class="indicator-footer status-watch"
-          >
-            → 持續進行紀錄品質改善
           </div>
 
         </div>
@@ -1179,49 +894,36 @@
 
         <!-- Indicator 3 -->
 
-        <div class="indicator-card">
+        <div class="kpi-card indicator-3">
 
-          <div class="indicator-top">
+          <div>
 
-            <div class="indicator-number">
+            <div class="kpi-label">
+
               指標 3
+
             </div>
 
-            <div class="indicator-status green">
-              🟢 達標
+            <div class="kpi-value">
+
+              99.61%
+
             </div>
 
           </div>
 
 
-          <h3>
-            呼吸器功能完成率與定期保養
-          </h3>
+          <div class="kpi-footer">
 
+            呼吸器功能與定期保養
 
-          <div class="indicator-value">
-            99.61%
-          </div>
-
-
-          <div class="indicator-description">
-            呼吸器 Daily Check 與定期保養品質
-          </div>
-
-
-          <div class="indicator-divider"></div>
-
-
-          <div
-            class="indicator-footer status-good"
-          >
-            ✓ 持續維持品質標準
           </div>
 
         </div>
 
 
       </div>
+
 
     </section>
 
@@ -1243,442 +945,309 @@
         </h2>
 
         <p>
-          三項品質指標完成率趨勢
+          2026 年 1–6 月三項品質指標完成率趨勢
         </p>
 
       </div>
 
 
-      <div class="chart-card">
+      <div class="card">
+
+
+        <!-- Custom Legend -->
+
+        <div class="custom-legend">
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-blue"></span>
+
+            使用呼吸器病人收案之完整性
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-green"></span>
+
+            呼吸照護紀錄品質
+
+          </div>
+
+
+          <div class="legend-item">
+
+            <span class="legend-dot dot-orange"></span>
+
+            呼吸器功能與定期保養
+
+          </div>
+
+
+        </div>
+
 
         <div class="chart-box">
 
-          <canvas
-            id="qualityTrendChart"
-          ></canvas>
+          <canvas id="trendChart"></canvas>
 
         </div>
 
+
       </div>
+
 
     </section>
 
 
 
     <!-- ==========================================
-         Monthly Focus
+         Pareto Analysis
     ========================================== -->
 
     <section
       class="section"
+      id="pareto"
     >
 
       <div class="section-header">
 
         <h2>
-          📌 Monthly Focus
+          📉 Pareto Analysis
         </h2>
 
         <p>
-          本月品質改善重點
+          未達品質目標原因分析與改善優先順序
         </p>
 
       </div>
 
 
-      <div class="focus-grid">
+      <div class="card">
 
+        <div class="chart-box">
 
-        <div class="focus-card">
-
-          <div class="focus-icon">
-            🔴
-          </div>
-
-          <h3>
-            發現問題
-          </h3>
-
-          <p>
-            持續監測未符合品質標準的個案與紀錄項目。
-          </p>
+          <canvas id="paretoChart"></canvas>
 
         </div>
 
 
+        <table class="pareto-table">
 
-        <div class="focus-card">
+          <thead>
 
-          <div class="focus-icon">
-            🟡
-          </div>
+            <tr>
 
-          <h3>
-            改善措施
-          </h3>
+              <th>
+                問題項目
+              </th>
 
-          <p>
-            加強即時提醒、QC 審核與團隊溝通。
-          </p>
+              <th>
+                發生次數
+              </th>
 
-        </div>
+              <th>
+                累積百分比
+              </th>
+
+              <th>
+                改善優先順序
+              </th>
+
+            </tr>
+
+          </thead>
 
 
+          <tbody>
 
-        <div class="focus-card">
+            <tr>
 
-          <div class="focus-icon">
-            🟢
-          </div>
+              <td>
+                未測量 Cst / Raw
+              </td>
 
-          <h3>
-            目前結果
-          </h3>
+              <td>
+                12
+              </td>
 
-          <p>
-            三項品質指標維持良好表現，持續追蹤改善成效。
-          </p>
+              <td>
+                35%
+              </td>
 
-        </div>
+              <td>
+                Priority 1
+              </td>
+
+            </tr>
+
+
+            <tr>
+
+              <td>
+                未完成 Biweekly 紀錄
+              </td>
+
+              <td>
+                9
+              </td>
+
+              <td>
+                62%
+              </td>
+
+              <td>
+                Priority 2
+              </td>
+
+            </tr>
+
+
+            <tr>
+
+              <td>
+                每月氧氣濃度測量未完成
+              </td>
+
+              <td>
+                7
+              </td>
+
+              <td>
+                82%
+              </td>
+
+              <td>
+                Priority 3
+              </td>
+
+            </tr>
+
+
+            <tr>
+
+              <td>
+                其他原因
+              </td>
+
+              <td>
+                6
+              </td>
+
+              <td>
+                100%
+              </td>
+
+              <td>
+                Monitor
+              </td>
+
+            </tr>
+
+
+          </tbody>
+
+        </table>
 
 
       </div>
+
 
     </section>
 
 
 
     <!-- ==========================================
-         PDCA Tracker
+         PDCA
     ========================================== -->
 
-    <section
-      class="section"
-      id="pdca"
-    >
+    <section class="section">
 
       <div class="section-header">
 
         <h2>
-          🔄 PDCA Improvement Tracker
+          🔄 Quality Improvement Tracker
         </h2>
 
         <p>
-          以簡潔方式追蹤品質改善進度
+          PDCA 改善計畫與追蹤
         </p>
 
       </div>
 
 
-      <div class="pdca-container">
+      <div class="summary-grid">
 
 
-        <!-- PLAN -->
+        <div class="summary-item">
 
-        <div class="pdca-card plan">
+          <div class="summary-label">
 
-          <div class="pdca-step">
-            P
-          </div>
-
-          <h3>
             PLAN
-          </h3>
 
-          <p>
-            發現部分品質紀錄未完全符合標準，進行原因分析。
-          </p>
+          </div>
+
+          <div class="summary-value">
+
+            問題確認
+
+          </div>
 
         </div>
 
 
+        <div class="summary-item">
 
-        <!-- DO -->
+          <div class="summary-label">
 
-        <div class="pdca-card do">
-
-          <div class="pdca-step">
-            D
-          </div>
-
-          <h3>
             DO
-          </h3>
 
-          <p>
-            加強臨床提醒、即時修正與 QC 團隊溝通。
-          </p>
+          </div>
+
+          <div class="summary-value">
+
+            改善措施執行
+
+          </div>
 
         </div>
 
 
+        <div class="summary-item">
 
-        <!-- CHECK -->
+          <div class="summary-label">
 
-        <div class="pdca-card check">
+            CHECK / ACT
 
-          <div class="pdca-step">
-            C
           </div>
 
-          <h3>
-            CHECK
-          </h3>
+          <div class="summary-value">
 
-          <p>
-            定期檢視品質指標結果，確認改善措施成效。
-          </p>
+            成效追蹤
 
-        </div>
-
-
-
-        <!-- ACT -->
-
-        <div class="pdca-card act">
-
-          <div class="pdca-step">
-            A
           </div>
-
-          <h3>
-            ACT
-          </h3>
-
-          <p>
-            將有效改善措施納入日常 QC，持續監測與優化。
-          </p>
 
         </div>
 
 
       </div>
 
+
     </section>
 
 
 
-    <!-- ==========================================
-         Monthly Report
-    ========================================== -->
+    <!-- Footer -->
 
-    <section
-      class="section"
-      id="report"
-    >
+    <footer>
 
-      <div class="section-header">
+      RT Clinical Quality Dashboard<br>
 
-        <h2>
-          📄 完整月報
-        </h2>
+      Quality Improvement • Pareto Analysis • PDCA Tracking
 
-        <p>
-          首頁保持簡潔，詳細內容可依需要展開閱讀
-        </p>
-
-      </div>
-
-
-
-      <!-- Indicator 1 -->
-
-      <details>
-
-        <summary>
-          📊 指標 1｜使用呼吸器病人收案之完整性
-        </summary>
-
-        <div class="report-content">
-
-          <h4>
-            📌 目前狀況
-          </h4>
-
-          <ul>
-            <li>
-              品質指標完成率：99.74%
-            </li>
-
-            <li>
-              持續監測使用呼吸器病人收案資料完整性。
-            </li>
-          </ul>
-
-
-          <h4>
-            🔄 改善追蹤
-          </h4>
-
-          <ul>
-            <li>
-              加強病人收案資料確認。
-            </li>
-
-            <li>
-              發現異常時進行即時修正。
-            </li>
-
-            <li>
-              持續由 QC 團隊進行監測。
-            </li>
-          </ul>
-
-        </div>
-
-      </details>
-
-
-
-      <!-- Indicator 2 -->
-
-      <details>
-
-        <summary>
-          📝 指標 2｜呼吸照護紀錄品質
-        </summary>
-
-        <div class="report-content">
-
-          <h4>
-            📌 目前狀況
-          </h4>
-
-          <ul>
-            <li>
-              品質指標完成率：99.62%
-            </li>
-
-            <li>
-              持續監測 Flow sheet 與 Progress note。
-            </li>
-          </ul>
-
-
-          <h4>
-            🔄 改善追蹤
-          </h4>
-
-          <ul>
-            <li>
-              加強呼吸照護紀錄完整性。
-            </li>
-
-            <li>
-              持續進行 QC 審核。
-            </li>
-
-            <li>
-              發現未符合標準時進行改善追蹤。
-            </li>
-          </ul>
-
-        </div>
-
-      </details>
-
-
-
-      <!-- Indicator 3 -->
-
-      <details>
-
-        <summary>
-          ⚙️ 指標 3｜呼吸器功能完成率與定期保養
-        </summary>
-
-        <div class="report-content">
-
-          <h4>
-            📌 目前狀況
-          </h4>
-
-          <ul>
-            <li>
-              品質指標完成率：99.61%
-            </li>
-
-            <li>
-              持續監測呼吸器 Daily Check 與定期保養。
-            </li>
-          </ul>
-
-
-          <h4>
-            🔄 改善追蹤
-          </h4>
-
-          <ul>
-            <li>
-              定期確認呼吸器功能檢查執行情形。
-            </li>
-
-            <li>
-              加強異常項目即時處理。
-            </li>
-
-            <li>
-              持續納入常規品質監測。
-            </li>
-          </ul>
-
-        </div>
-
-      </details>
-
-
-
-      <!-- Overall Improvement -->
-
-      <details>
-
-        <summary>
-          🔄 本月整體 PDCA 改善紀錄
-        </summary>
-
-        <div class="report-content">
-
-          <h4>
-            🔵 PLAN｜問題確認
-          </h4>
-
-          <p>
-            針對品質指標未完全符合標準的個案進行原因分析。
-          </p>
-
-
-          <h4>
-            🟡 DO｜改善措施
-          </h4>
-
-          <p>
-            執行即時提醒、加強 QC 審核與團隊溝通。
-          </p>
-
-
-          <h4>
-            🟢 CHECK｜成效檢核
-          </h4>
-
-          <p>
-            持續追蹤三項品質指標，確認改善措施執行成效。
-          </p>
-
-
-          <h4>
-            🟣 ACT｜持續改善
-          </h4>
-
-          <p>
-            將有效改善措施納入常規 QC 流程，持續優化品質。
-          </p>
-
-        </div>
-
-      </details>
-
-
-    </section>
+    </footer>
 
 
   </main>
@@ -1686,174 +1255,184 @@
 
 
   <!-- ==========================================
-       Footer
-  ========================================== -->
-
-  <footer>
-
-    RT Clinical Quality Dashboard<br>
-
-    Quality Monitoring · Improvement · PDCA Tracking
-
-  </footer>
-
-
-
-  <!-- ==========================================
-       Chart.js
+       Chart JavaScript
   ========================================== -->
 
   <script>
 
-    const ctx =
+
+    /* ==========================================
+       Quality Trend Chart
+    ========================================== */
+
+    const trendContext =
       document
-        .getElementById("qualityTrendChart")
+        .getElementById("trendChart")
         .getContext("2d");
 
 
-    new Chart(ctx, {
+    new Chart(
+      trendContext,
+      {
 
-      type: "line",
-
-      data: {
-
-        labels: [
-          "2026-01",
-          "2026-02",
-          "2026-03",
-          "2026-04",
-          "2026-05",
-          "2026-06"
-        ],
+        type: "line",
 
 
-        datasets: [
+        data: {
 
-          {
-            label:
-              "使用呼吸器病人收案之完整性",
-
-            data: [
-              99.74,
-              99.60,
-              99.72,
-              99.80,
-              99.85,
-              99.90
-            ],
-
-            borderColor:
-              "#2563eb",
-
-            backgroundColor:
-              "rgba(37, 99, 235, 0.1)",
-
-            tension:
-              0.35,
-
-            pointRadius:
-              5,
-
-            pointHoverRadius:
-              7
-          },
+          labels: [
+            "01月",
+            "02月",
+            "03月",
+            "04月",
+            "05月",
+            "06月"
+          ],
 
 
-          {
-            label:
-              "呼吸照護紀錄品質",
+          datasets: [
 
-            data: [
-              99.62,
-              99.55,
-              99.70,
-              99.75,
-              99.82,
-              99.88
-            ],
+            {
 
-            borderColor:
-              "#059669",
+              label:
+                "使用呼吸器病人收案之完整性",
 
-            backgroundColor:
-              "rgba(5, 150, 105, 0.1)",
+              data: [
+                99.38,
+                99.86,
+                99.61,
+                99.77,
+                99.74,
+                99.74
+              ],
 
-            tension:
-              0.35,
+              borderColor:
+                "#2563eb",
 
-            pointRadius:
-              5,
+              backgroundColor:
+                "#2563eb",
 
-            pointHoverRadius:
-              7
-          },
+              borderWidth:
+                3,
 
+              tension:
+                0.3,
 
-          {
-            label:
-              "呼吸器功能完成率與定期保養",
+              pointRadius:
+                5,
 
-            data: [
-              99.61,
-              99.50,
-              99.65,
-              99.72,
-              99.80,
-              99.86
-            ],
+              pointHoverRadius:
+                7
 
-            borderColor:
-              "#d97706",
-
-            backgroundColor:
-              "rgba(217, 119, 6, 0.1)",
-
-            tension:
-              0.35,
-
-            pointRadius:
-              5,
-
-            pointHoverRadius:
-              7
-          }
-
-        ]
-
-      },
+            },
 
 
-      options: {
+            {
 
-        responsive: true,
+              label:
+                "呼吸照護紀錄品質",
 
-        maintainAspectRatio: false,
+              data: [
+                99.53,
+                99.61,
+                99.92,
+                99.92,
+                99.62,
+                99.62
+              ],
+
+              borderColor:
+                "#059669",
+
+              backgroundColor:
+                "#059669",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.3,
+
+              pointRadius:
+                5,
+
+              pointHoverRadius:
+                7
+
+            },
 
 
-        interaction: {
+            {
 
-          mode: "index",
+              label:
+                "呼吸器功能與定期保養",
 
-          intersect: false
+              data: [
+                99.49,
+                99.92,
+                99.86,
+                99.46,
+                99.61,
+                99.61
+              ],
+
+              borderColor:
+                "#d97706",
+
+              backgroundColor:
+                "#d97706",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.3,
+
+              pointRadius:
+                5,
+
+              pointHoverRadius:
+                7
+
+            }
+
+          ]
 
         },
 
 
-        plugins: {
+        options: {
 
-          legend: {
+          responsive: true,
 
-            position: "top",
+          maintainAspectRatio: false,
 
-            labels: {
 
-              usePointStyle: true,
+          plugins: {
 
-              padding: 22,
+            legend: {
 
-              font: {
-                family:
-                  "Microsoft JhengHei, Noto Sans TC, Arial"
+              display: false
+
+            },
+
+
+            tooltip: {
+
+              callbacks: {
+
+                label:
+                  function(context) {
+
+                    return (
+                      context.dataset.label +
+                      "：" +
+                      context.parsed.y +
+                      "%"
+                    );
+
+                  }
+
               }
 
             }
@@ -1861,63 +1440,219 @@
           },
 
 
-          tooltip: {
+          scales: {
 
-            callbacks: {
+            y: {
 
-              label:
-                function(context) {
+              min: 98,
 
-                  return (
-                    context.dataset.label +
-                    "：" +
-                    context.parsed.y +
-                    "%"
-                  );
+              max: 100,
 
-                }
+              ticks: {
+
+                callback:
+                  function(value) {
+
+                    return value + "%";
+
+                  }
+
+              },
+
+              title: {
+
+                display: true,
+
+                text: "完成率 (%)"
+
+              }
+
+            },
+
+
+            x: {
+
+              title: {
+
+                display: true,
+
+                text: "月份"
+
+              }
 
             }
 
           }
 
-        },
+        }
+
+      }
+    );
 
 
-        scales: {
 
-          y: {
+    /* ==========================================
+       Pareto Chart
+    ========================================== */
 
-            min: 95,
+    const paretoContext =
+      document
+        .getElementById("paretoChart")
+        .getContext("2d");
 
-            max: 100,
 
-            ticks: {
+    new Chart(
+      paretoContext,
+      {
 
-              callback:
-                function(value) {
+        data: {
 
-                  return value + "%";
+          labels: [
 
-                }
+            "未測量 Cst / Raw",
+
+            "未完成 Biweekly 紀錄",
+
+            "氧氣濃度測量未完成",
+
+            "其他"
+
+          ],
+
+
+          datasets: [
+
+            {
+
+              type: "bar",
+
+              label:
+                "問題發生次數",
+
+              data: [
+                12,
+                9,
+                7,
+                6
+              ],
+
+              backgroundColor:
+                "#60a5fa",
+
+              yAxisID:
+                "y"
 
             },
 
-            grid: {
 
-              color:
-                "#e5e7eb"
+            {
+
+              type: "line",
+
+              label:
+                "累積百分比",
+
+              data: [
+                35,
+                62,
+                82,
+                100
+              ],
+
+              borderColor:
+                "#dc2626",
+
+              backgroundColor:
+                "#dc2626",
+
+              borderWidth:
+                3,
+
+              tension:
+                0.2,
+
+              pointRadius:
+                5,
+
+              yAxisID:
+                "y1"
+
+            }
+
+          ]
+
+        },
+
+
+        options: {
+
+          responsive: true,
+
+          maintainAspectRatio: false,
+
+
+          plugins: {
+
+            legend: {
+
+              position: "top"
 
             }
 
           },
 
 
-          x: {
+          scales: {
 
-            grid: {
+            y: {
 
-              display: false
+              beginAtZero: true,
+
+              title: {
+
+                display: true,
+
+                text: "問題發生次數"
+
+              }
+
+            },
+
+
+            y1: {
+
+              position: "right",
+
+              beginAtZero: true,
+
+              max: 100,
+
+              grid: {
+
+                drawOnChartArea: false
+
+              },
+
+
+              ticks: {
+
+                callback:
+                  function(value) {
+
+                    return value + "%";
+
+                  }
+
+              },
+
+
+              title: {
+
+                display: true,
+
+                text: "累積百分比"
+
+              }
 
             }
 
@@ -1927,7 +1662,8 @@
 
       }
 
-    });
+    );
+
 
   </script>
 
