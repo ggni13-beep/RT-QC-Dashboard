@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- 手機版自動縮放 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RT Clinical Quality Dashboard</title>
+
+  <!-- Chart.js 圖表工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Arial,
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        sans-serif;
+
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    /* =========================
+       Header
+    ========================== */
+
+    header {
+      background: white;
+      padding: 30px 6%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    /* =========================
+       Main
+    ========================== */
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 28px 18px 50px;
+    }
+
+    /* =========================
+       KPI Cards
+    ========================== */
+
+    .kpi-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+
+      border: 1px solid #e5e7eb;
+
+      border-radius: 14px;
+
+      padding: 22px;
+    }
+
+    .card-title {
+      color: #64748b;
+
+      font-size: 14px;
+    }
+
+    .kpi-number {
+      font-size: 34px;
+
+      font-weight: bold;
+
+      margin-top: 10px;
+
+      margin-bottom: 6px;
+    }
+
+    .card-note {
+      font-size: 13px;
+
+      color: #94a3b8;
+    }
+
+    /* =========================
+       Section
+    ========================== */
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .section-title {
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: #64748b;
+
+      margin-top: 0;
+    }
+
+    /* =========================
+       Chart
+    ========================== */
+
+    .chart-container {
+      position: relative;
+
+      height: 420px;
+    }
+
+    /* =========================
+       Table
+    ========================== */
+
+    table {
+      width: 100%;
+
+      border-collapse: collapse;
+
+      background: white;
+
+      overflow: hidden;
+
+      border-radius: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+
+      color: #475569;
+
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 15px;
+
+      border-bottom: 1px solid #e5e7eb;
+
+      text-align: left;
+    }
+
+    .warning-badge {
+      display: inline-block;
+
+      padding: 5px 10px;
+
+      border-radius: 20px;
+
+      background: #fff1f2;
+
+      color: #be123c;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       Key Message
+    ========================== */
+
+    .key-message {
+      background: white;
+
+      border-left: 5px solid #64748b;
+
+      padding: 22px;
+
+      border-radius: 8px;
+
+      line-height: 1.8;
+
+      font-size: 16px;
+    }
+
+    /* =========================
+       Footer
+    ========================== */
+
+    footer {
+      margin-top: 30px;
+
+      color: #94a3b8;
+
+      font-size: 12px;
+
+      text-align: center;
+    }
+
+    /* =========================
+       Mobile
+    ========================== */
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      .chart-container {
+        height: 330px;
+      }
+
+      .kpi-number {
+        font-size: 30px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <h1>
+      📊 呼吸治療臨床品質監測
+    </h1>
+
+    <div class="subtitle">
+      RT Clinical Quality Dashboard ｜ 2026 年 1–4 月
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+
+    <!-- =========================
+         KPI
+    ========================== -->
+
+    <div class="kpi-grid">
+
+
+      <div class="card">
+
+        <div class="card-title">
+          品質監測指標
+        </div>
+
+        <div class="kpi-number">
+          3
+        </div>
+
+        <div class="card-note">
+          呼吸治療核心 QC 指標
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-title">
+          品質合格標準
+        </div>
+
+        <div class="kpi-number">
+          ≥97%
+        </div>
+
+        <div class="card-note">
+          三項指標皆採相同目標
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-title">
+          目前重複性缺失
+        </div>
+
+        <div class="kpi-number">
+          2
+        </div>
+
+        <div class="card-note">
+          優先進行流程改善追蹤
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         TREND
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>
+          📈 三項品質指標趨勢
+        </h2>
+
+        <p>
+          每月品質合格率與目標值比較
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="chart-container">
+
+          <canvas id="qualityChart"></canvas>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         REPEATED FINDINGS
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>
+          🔍 重複性缺失追蹤
+        </h2>
+
+        <p>
+          高合格率下持續出現的流程缺口
+        </p>
+
+      </div>
+
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              缺失項目
+            </th>
+
+            <th>
+              持續出現
+            </th>
+
+            <th>
+              監測結果
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+
+          <tr>
+
+            <td>
+              未測量氧氣濃度
+            </td>
+
+            <td>
+              連續 4 個月
+            </td>
+
+            <td>
+
+              <span class="warning-badge">
+                重複性缺失
+              </span>
+
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              呼吸器重卡狀態未更改
+            </td>
+
+            <td>
+              連續 3 個月
+            </td>
+
+            <td>
+
+              <span class="warning-badge">
+                重複性缺失
+              </span>
+
+            </td>
+
+          </tr>
+
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+
+
+    <!-- =========================
+         KEY MESSAGE
+    ========================== -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>
+          💡 品質監測核心訊息
+        </h2>
+
+      </div>
+
+
+      <div class="key-message">
+
+        <strong>
+          高合格率不代表沒有品質問題。
+        </strong>
+
+        <br>
+
+        臨床品質監測除了確認整體指標是否達標，
+        更應持續辨識「是否有相同缺失重複發生」。
+
+        <br><br>
+
+        重複性缺失可作為後續：
+
+        <br>
+
+        🔹 Pareto 分析  
+        <br>
+
+        🔹 根因分析（RCA）  
+        <br>
+
+        🔹 PDCA 改善追蹤  
+        <br>
+
+        🔹 制度化防呆設計  
+
+        的重要依據。
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+      RT Clinical Quality Metrics Dashboard
+
+      <br><br>
+
+      資料來源：呼吸治療科 QC 月報
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const ctx =
+      document
+        .getElementById("qualityChart")
+        .getContext("2d");
+
+
+    new Chart(ctx, {
+
+      type: "line",
+
+
+      data: {
+
+
+        labels: [
+
+          "2026/01",
+
+          "2026/02",
+
+          "2026/03",
+
+          "2026/04"
+
+        ],
+
+
+        datasets: [
+
+
+          {
+
+            label:
+              "呼吸器病人紀錄表",
+
+            data: [
+
+              99.38,
+
+              99.86,
+
+              99.61,
+
+              99.77
+
+            ],
+
+            borderWidth: 2,
+
+            tension: 0.3
+
+          },
+
+
+          {
+
+            label:
+              "呼吸照護紀錄",
+
+            data: [
+
+              99.53,
+
+              99.61,
+
+              99.92,
+
+              99.92
+
+            ],
+
+            borderWidth: 2,
+
+            tension: 0.3
+
+          },
+
+
+          {
+
+            label:
+              "呼吸器功能完成率",
+
+            data: [
+
+              99.49,
+
+              99.92,
+
+              99.86,
+
+              99.46
+
+            ],
+
+            borderWidth: 2,
+
+            tension: 0.3
+
+          },
+
+
+          {
+
+            label:
+              "品質目標 ≥97%",
+
+            data: [
+
+              97,
+
+              97,
+
+              97,
+
+              97
+
+            ],
+
+            borderWidth: 2,
+
+            borderDash: [
+
+              8,
+
+              6
+
+            ],
+
+            pointRadius: 0
+
+          }
+
+
+        ]
+
+      },
+
+
+      options: {
+
+
+        responsive: true,
+
+
+        maintainAspectRatio: false,
+
+
+        interaction: {
+
+          mode: "index",
+
+          intersect: false
+
+        },
+
+
+        plugins: {
+
+
+          legend: {
+
+            position: "top"
+
+          },
+
+
+          tooltip: {
+
+            callbacks: {
+
+              label:
+
+                function(context) {
+
+                  return (
+                    context.dataset.label
+                    +
+                    "："
+                    +
+                    context.parsed.y
+                    +
+                    "%"
+                  );
+
+                }
+
+            }
+
+          }
+
+        },
+
+
+        scales: {
+
+
+          y: {
+
+            min: 96,
+
+            max: 100,
+
+
+            ticks: {
+
+              callback:
+
+                function(value) {
+
+                  return value + "%";
+
+                }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
