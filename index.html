@@ -2,6 +2,7 @@
 <html lang="zh-Hant">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -97,8 +98,6 @@
 
       color: #1e293b;
 
-      letter-spacing: .2px;
-
     }
 
 
@@ -118,8 +117,6 @@
       display: inline-flex;
 
       align-items: center;
-
-      gap: 6px;
 
       margin-top: 12px;
 
@@ -308,7 +305,7 @@
 
       padding: 18px;
 
-      min-height: 130px;
+      min-height: 135px;
 
       box-shadow:
         0 2px 8px rgba(15,23,42,.03);
@@ -361,23 +358,17 @@
 
 
     .value-blue {
-
       color: #2563eb;
-
     }
 
 
     .value-green {
-
       color: #047857;
-
     }
 
 
     .value-orange {
-
       color: #c2410c;
-
     }
 
 
@@ -546,24 +537,6 @@
        09. QUALITY IMPROVEMENT TRACKER
     ================================================== */
 
-    .tracker-section {
-
-      margin-top: 40px;
-
-    }
-
-
-    .tracker-intro {
-
-      margin-bottom: 18px;
-
-      font-size: 12px;
-
-      color: #64748b;
-
-    }
-
-
     .pdca-grid {
 
       display: grid;
@@ -577,8 +550,6 @@
 
 
     .pdca-card {
-
-      position: relative;
 
       background: white;
 
@@ -598,34 +569,22 @@
 
 
     .pdca-card.plan {
-
-      border-top:
-        3px solid #2563eb;
-
+      border-top: 3px solid #2563eb;
     }
 
 
     .pdca-card.do {
-
-      border-top:
-        3px solid #d97706;
-
+      border-top: 3px solid #d97706;
     }
 
 
     .pdca-card.check {
-
-      border-top:
-        3px solid #047857;
-
+      border-top: 3px solid #047857;
     }
 
 
     .pdca-card.act {
-
-      border-top:
-        3px solid #7c3aed;
-
+      border-top: 3px solid #7c3aed;
     }
 
 
@@ -695,8 +654,6 @@
     }
 
 
-    /* 中文說明 */
-
     .zh-note {
 
       margin-bottom: 16px;
@@ -736,8 +693,6 @@
         1px solid #f1f5f9;
 
       font-size: 12px;
-
-      color: #475569;
 
     }
 
@@ -785,9 +740,7 @@
 
 
     .tracker-text {
-
       flex: 1;
-
     }
 
 
@@ -812,7 +765,79 @@
 
 
     /* ==================================================
-       10. QUALITY IMPROVEMENT JOURNEY
+       10. MONTHLY IMPROVEMENT UPDATE
+    ================================================== */
+
+    .monthly-update {
+
+      margin-top: 16px;
+
+      padding: 18px;
+
+      background: #f8fafc;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius: 12px;
+
+    }
+
+
+    .monthly-update-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+
+    }
+
+
+    .monthly-update-item {
+
+      padding: 12px;
+
+      background: white;
+
+      border-radius: 10px;
+
+      border:
+        1px solid #e2e8f0;
+
+    }
+
+
+    .monthly-update-label {
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      color: #94a3b8;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .monthly-update-value {
+
+      margin-top: 6px;
+
+      font-size: 12px;
+
+      color: #475569;
+
+      line-height: 1.6;
+
+    }
+
+
+    /* ==================================================
+       11. QUALITY IMPROVEMENT JOURNEY
     ================================================== */
 
     .journey-card {
@@ -828,19 +853,6 @@
 
       box-shadow:
         0 2px 10px rgba(15,23,42,.04);
-
-    }
-
-
-    .journey-title {
-
-      margin-bottom: 20px;
-
-      font-size: 18px;
-
-      font-weight: 700;
-
-      color: #334155;
 
     }
 
@@ -874,26 +886,17 @@
 
 
     .journey-phase.phase-1 {
-
-      border-top:
-        3px solid #2563eb;
-
+      border-top: 3px solid #2563eb;
     }
 
 
     .journey-phase.phase-2 {
-
-      border-top:
-        3px solid #d97706;
-
+      border-top: 3px solid #d97706;
     }
 
 
     .journey-phase.phase-3 {
-
-      border-top:
-        3px solid #047857;
-
+      border-top: 3px solid #047857;
     }
 
 
@@ -950,7 +953,7 @@
 
 
     /* ==================================================
-       11. FOOTER
+       12. FOOTER
     ================================================== */
 
     footer {
@@ -972,124 +975,92 @@
 
 
     /* ==================================================
-       12. TABLET
+       TABLET
     ================================================== */
 
     @media (max-width: 1000px) {
 
       .pdca-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-        grid-template-columns:
-          repeat(2, 1fr);
 
+      .monthly-update-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
 
       .journey-flow {
-
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
       }
 
 
       .journey-arrow {
-
-        transform:
-          rotate(90deg);
-
+        transform: rotate(90deg);
       }
 
     }
 
 
     /* ==================================================
-       13. MOBILE
+       MOBILE
     ================================================== */
 
     @media (max-width: 768px) {
 
       header {
-
-        padding:
-          22px 16px 18px;
-
+        padding: 22px 16px 18px;
       }
 
 
       .header-title h1 {
-
         font-size: 23px;
-
       }
 
 
       main {
-
-        padding:
-          24px 14px 50px;
-
+        padding: 24px 14px 50px;
       }
 
 
       .section-header h2 {
-
         font-size: 19px;
-
       }
 
 
       .kpi-grid {
-
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
       }
 
 
       .pdca-grid {
+        grid-template-columns: 1fr;
+      }
 
-        grid-template-columns:
-          1fr;
 
+      .monthly-update-grid {
+        grid-template-columns: 1fr;
       }
 
 
       .pdca-card {
-
         min-height: auto;
-
       }
 
 
       .chart-box {
-
         height: 280px;
-
       }
 
 
       .journey-card {
-
         padding: 16px;
-
-      }
-
-
-      .nav-container {
-
-        gap: 6px;
-
       }
 
 
       .nav-button {
-
         font-size: 10px;
-
-        padding:
-          6px 9px;
-
+        padding: 6px 9px;
       }
 
     }
@@ -1102,9 +1073,9 @@
 <body>
 
 
-  <!-- ==============================================
+  <!-- ==================================================
        HEADER
-  =============================================== -->
+  ================================================== -->
 
   <header>
 
@@ -1126,14 +1097,13 @@
       </div>
 
 
-      <div class="period-tag">
-
-        📊 資料期間：2026 年 1 月－6 月
-
+      <div
+        class="period-tag"
+        id="periodTag"
+      >
+        📊 資料期間
       </div>
 
-
-      <!-- Navigation -->
 
       <div class="nav-container">
 
@@ -1179,9 +1149,9 @@
   <main>
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          QUALITY OVERVIEW
-    =============================================== -->
+    ================================================== -->
 
     <section
       class="section"
@@ -1192,17 +1162,13 @@
 
         <h2>📌 Quality Overview</h2>
 
-        <p>
-          2026 年 1–6 月三項呼吸治療品質指標
-        </p>
+        <p id="overviewSubtitle"></p>
 
       </div>
 
 
       <div class="kpi-grid">
 
-
-        <!-- KPI 1 -->
 
         <div class="kpi-card blue">
 
@@ -1213,24 +1179,22 @@
           </div>
 
 
-          <div class="kpi-value value-blue">
-
-            99.74%
-
+          <div
+            class="kpi-value value-blue"
+            id="kpi1Value"
+          >
           </div>
 
 
-          <div class="kpi-note">
-
-            使用呼吸器病人收案之完整性
-
+          <div
+            class="kpi-note"
+            id="kpi1Name"
+          >
           </div>
 
         </div>
 
 
-
-        <!-- KPI 2 -->
 
         <div class="kpi-card green">
 
@@ -1241,24 +1205,22 @@
           </div>
 
 
-          <div class="kpi-value value-green">
-
-            99.62%
-
+          <div
+            class="kpi-value value-green"
+            id="kpi2Value"
+          >
           </div>
 
 
-          <div class="kpi-note">
-
-            呼吸照護紀錄品質
-
+          <div
+            class="kpi-note"
+            id="kpi2Name"
+          >
           </div>
 
         </div>
 
 
-
-        <!-- KPI 3 -->
 
         <div class="kpi-card orange">
 
@@ -1269,17 +1231,17 @@
           </div>
 
 
-          <div class="kpi-value value-orange">
-
-            99.61%
-
+          <div
+            class="kpi-value value-orange"
+            id="kpi3Value"
+          >
           </div>
 
 
-          <div class="kpi-note">
-
-            呼吸器功能與定期保養
-
+          <div
+            class="kpi-note"
+            id="kpi3Name"
+          >
           </div>
 
         </div>
@@ -1291,9 +1253,9 @@
 
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          QUALITY TREND
-    =============================================== -->
+    ================================================== -->
 
     <section
       class="section"
@@ -1305,7 +1267,7 @@
         <h2>📈 Quality Performance Trend</h2>
 
         <p>
-          2026 年 1–6 月三項品質指標完成率趨勢
+          三項品質指標完成率趨勢
         </p>
 
       </div>
@@ -1320,7 +1282,7 @@
 
             <span class="dot blue-dot"></span>
 
-            使用呼吸器病人收案之完整性
+            <span id="legend1"></span>
 
           </div>
 
@@ -1329,7 +1291,7 @@
 
             <span class="dot green-dot"></span>
 
-            呼吸照護紀錄品質
+            <span id="legend2"></span>
 
           </div>
 
@@ -1338,7 +1300,7 @@
 
             <span class="dot orange-dot"></span>
 
-            呼吸器功能與定期保養
+            <span id="legend3"></span>
 
           </div>
 
@@ -1357,9 +1319,9 @@
 
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          PARETO ANALYSIS
-    =============================================== -->
+    ================================================== -->
 
     <section
       class="section"
@@ -1408,58 +1370,7 @@
             </thead>
 
 
-            <tbody>
-
-              <tr>
-
-                <td>RedCap 收案／狀態更新</td>
-
-                <td>12</td>
-
-                <td>35%</td>
-
-                <td>Priority 1</td>
-
-              </tr>
-
-
-              <tr>
-
-                <td>Flow sheet / Progress note</td>
-
-                <td>9</td>
-
-                <td>62%</td>
-
-                <td>Priority 2</td>
-
-              </tr>
-
-
-              <tr>
-
-                <td>呼吸器功能與定期保養</td>
-
-                <td>7</td>
-
-                <td>82%</td>
-
-                <td>Priority 3</td>
-
-              </tr>
-
-
-              <tr>
-
-                <td>其他</td>
-
-                <td>6</td>
-
-                <td>100%</td>
-
-                <td>Monitor</td>
-
-              </tr>
+            <tbody id="paretoTableBody">
 
             </tbody>
 
@@ -1473,12 +1384,12 @@
 
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          QUALITY IMPROVEMENT TRACKER
-    =============================================== -->
+    ================================================== -->
 
     <section
-      class="section tracker-section"
+      class="section"
       id="tracker"
     >
 
@@ -1500,20 +1411,14 @@
 
         <div class="pdca-card plan">
 
-
           <div class="pdca-step">
 
             <div class="step-number">
-
               01
-
             </div>
 
-
             <div class="step-name">
-
               PLAN
-
             </div>
 
           </div>
@@ -1535,75 +1440,49 @@
 
           <ul class="tracker-list">
 
-
             <li>
-
               <span class="status-dot status-blue"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   RedCap status update
-
                 </div>
 
                 <div class="tracker-zh">
-
                   RedCap 收案與狀態更新
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span class="status-dot status-yellow"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Respiratory care documentation
-
                 </div>
 
                 <div class="tracker-zh">
-
                   呼吸照護紀錄品質
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span class="status-dot status-green"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Ventilator maintenance documentation
-
                 </div>
 
                 <div class="tracker-zh">
-
                   呼吸器功能與定期保養紀錄
-
                 </div>
-
               </div>
-
             </li>
-
 
           </ul>
 
@@ -1615,20 +1494,14 @@
 
         <div class="pdca-card do">
 
-
           <div class="pdca-step">
 
             <div class="step-number">
-
               02
-
             </div>
 
-
             <div class="step-name">
-
               DO
-
             </div>
 
           </div>
@@ -1650,98 +1523,64 @@
 
           <ul class="tracker-list">
 
-
             <li>
-
               <span>📢</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Standardized education
-
                 </div>
 
                 <div class="tracker-zh">
-
                   標準化教育與規範說明
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span>⚡</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Real-time correction
-
                 </div>
 
                 <div class="tracker-zh">
-
                   即時發現、即時修正
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span>👥</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Individual support
-
                 </div>
 
                 <div class="tracker-zh">
-
                   個別提醒與協助
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span>📱</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Electronic QC reference
-
                 </div>
 
                 <div class="tracker-zh">
-
                   電子化 QC 參考工具
-
                 </div>
-
               </div>
-
             </li>
-
 
           </ul>
 
@@ -1753,20 +1592,14 @@
 
         <div class="pdca-card check">
 
-
           <div class="pdca-step">
 
             <div class="step-number">
-
               03
-
             </div>
 
-
             <div class="step-name">
-
               CHECK
-
             </div>
 
           </div>
@@ -1788,75 +1621,49 @@
 
           <ul class="tracker-list">
 
-
             <li>
-
               <span class="status-dot status-green"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Overall compliance ≥97%
-
                 </div>
 
                 <div class="tracker-zh">
-
                   整體品質達標率 ≥97%
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span>📉</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Recurrent defect trend
-
                 </div>
 
                 <div class="tracker-zh">
-
                   觀察重複缺失是否下降
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span>🔍</span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Persistent problem detection
-
                 </div>
 
                 <div class="tracker-zh">
-
                   辨識持續存在的問題
-
                 </div>
-
               </div>
-
             </li>
-
 
           </ul>
 
@@ -1868,20 +1675,14 @@
 
         <div class="pdca-card act">
 
-
           <div class="pdca-step">
 
             <div class="step-number">
-
               04
-
             </div>
 
-
             <div class="step-name">
-
               ACT
-
             </div>
 
           </div>
@@ -1903,75 +1704,49 @@
 
           <ul class="tracker-list">
 
-
             <li>
-
               <span class="status-dot status-green"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Effective → Standardize
-
                 </div>
 
                 <div class="tracker-zh">
-
                   改善有效 → 納入標準作業
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span class="status-dot status-yellow"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Partial improvement → Continue monitoring
-
                 </div>
 
                 <div class="tracker-zh">
-
                   部分改善 → 持續追蹤
-
                 </div>
-
               </div>
-
             </li>
 
 
             <li>
-
               <span class="status-dot status-red"></span>
 
               <div class="tracker-text">
-
                 <div class="tracker-en">
-
                   Persistent → Workflow redesign
-
                 </div>
 
                 <div class="tracker-zh">
-
                   問題持續 → 重新檢討流程
-
                 </div>
-
               </div>
-
             </li>
-
 
           </ul>
 
@@ -1980,16 +1755,44 @@
 
       </div>
 
+
+
+      <!-- MONTHLY UPDATE -->
+
+      <div class="monthly-update">
+
+        <div class="section-header">
+
+          <h2 style="font-size:16px;">
+            📌 Monthly Improvement Update
+          </h2>
+
+          <p>
+            本月品質改善重點
+          </p>
+
+        </div>
+
+
+        <div
+          class="monthly-update-grid"
+          id="monthlyUpdateGrid"
+        >
+
+        </div>
+
+      </div>
+
+
     </section>
 
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          2026 QUALITY IMPROVEMENT JOURNEY
-    =============================================== -->
+    ================================================== -->
 
     <section class="section">
-
 
       <div class="section-header">
 
@@ -2004,116 +1807,71 @@
 
       <div class="journey-card">
 
-
         <div class="journey-flow">
 
-
-          <!-- Phase 1 -->
 
           <div class="journey-phase phase-1">
 
             <div class="journey-period">
-
               Jan–Mar
-
             </div>
-
 
             <div class="journey-en">
-
               Identify & Educate
-
             </div>
 
-
             <div class="journey-zh">
-
               發現重複缺失<br>
-
               公告規範<br>
-
               建立教育措施
-
             </div>
 
           </div>
-
 
 
           <div class="journey-arrow">
-
             ↓
-
           </div>
 
-
-
-          <!-- Phase 2 -->
 
           <div class="journey-phase phase-2">
 
             <div class="journey-period">
-
               Apr–Jun
-
             </div>
-
 
             <div class="journey-en">
-
               Target & Monitor
-
             </div>
 
-
             <div class="journey-zh">
-
               鎖定高重複缺失<br>
-
               個別提醒<br>
-
               持續監測
-
             </div>
 
           </div>
-
 
 
           <div class="journey-arrow">
-
             ↓
-
           </div>
 
-
-
-          <!-- Phase 3 -->
 
           <div class="journey-phase phase-3">
 
             <div class="journey-period">
-
               Next Phase
-
             </div>
-
 
             <div class="journey-en">
-
               Standardize & Redesign
-
             </div>
 
-
             <div class="journey-zh">
-
               將有效改善措施標準化<br>
-
               對持續性問題進行<br>
-
               流程與系統改善
-
             </div>
 
           </div>
@@ -2127,9 +1885,9 @@
 
 
 
-    <!-- ==============================================
+    <!-- ==================================================
          FOOTER
-    =============================================== -->
+    ================================================== -->
 
     <footer>
 
@@ -2144,28 +1902,67 @@
 
 
 
-  <!-- ==============================================
+  <!-- ==================================================
        JAVASCRIPT
-  =============================================== -->
+  ================================================== -->
 
   <script>
 
 
-    /* ==========================================
-       QUALITY TREND CHART
-    ========================================== */
-
-    const trendCanvas =
-      document.getElementById("trendChart");
+    /* ========================================
+       📅 每月只修改以下資料
+       其他程式碼不需要修改
+    ======================================== */
 
 
-    new Chart(trendCanvas, {
+    const dashboardData = {
 
-      type: "line",
 
-      data: {
+      /* ==============================
+         ① DASHBOARD 基本資料
+      ============================== */
 
-        labels: [
+      period: "2026 年 1 月－6 月",
+
+
+      overviewSubtitle:
+        "2026 年 1–6 月三項呼吸治療品質指標",
+
+
+
+      /* ==============================
+         ② 三項品質指標名稱
+      ============================== */
+
+      indicatorNames: {
+
+        indicator1:
+          "使用呼吸器病人收案之完整性",
+
+        indicator2:
+          "呼吸照護紀錄品質",
+
+        indicator3:
+          "呼吸器功能與定期保養"
+
+      },
+
+
+
+      /* ==============================
+         ③ 每月品質指標資料
+
+         每增加一個月份：
+         1. months 增加月份
+         2. 三個 indicator 各增加一個數值
+
+         注意：
+         三組資料數量必須相同
+      ============================== */
+
+      trend: {
+
+        months: [
 
           "01月",
           "02月",
@@ -2176,290 +1973,359 @@
 
         ],
 
-        datasets: [
 
-          {
+        indicator1: [
 
-            label:
-              "使用呼吸器病人收案之完整性",
+          98.8,
+          99.7,
+          99.1,
+          99.4,
+          99.3,
+          99.3
 
-            data:
-              [98.8, 99.7, 99.1, 99.4, 99.3, 99.3],
-
-            borderColor:
-              "#2563eb",
-
-            backgroundColor:
-              "#2563eb",
-
-            tension:
-              0.35,
-
-            pointRadius:
-              3,
-
-            pointHoverRadius:
-              5
-
-          },
+        ],
 
 
-          {
+        indicator2: [
 
-            label:
-              "呼吸照護紀錄品質",
+          99.0,
+          99.2,
+          99.8,
+          99.8,
+          99.3,
+          99.3
 
-            data:
-              [99.0, 99.2, 99.8, 99.8, 99.3, 99.3],
-
-            borderColor:
-              "#047857",
-
-            backgroundColor:
-              "#047857",
-
-            tension:
-              0.35,
-
-            pointRadius:
-              3,
-
-            pointHoverRadius:
-              5
-
-          },
+        ],
 
 
-          {
+        indicator3: [
 
-            label:
-              "呼吸器功能與定期保養",
-
-            data:
-              [98.9, 99.6, 99.8, 99.0, 99.3, 99.3],
-
-            borderColor:
-              "#d97706",
-
-            backgroundColor:
-              "#d97706",
-
-            tension:
-              0.35,
-
-            pointRadius:
-              3,
-
-            pointHoverRadius:
-              5
-
-          }
+          98.9,
+          99.6,
+          99.8,
+          99.0,
+          99.3,
+          99.3
 
         ]
 
       },
 
 
-      options: {
 
-        responsive: true,
+      /* ==============================
+         ④ Pareto Analysis
 
-        maintainAspectRatio: false,
+         每月更新：
+         缺失名稱 + 缺失次數
 
+         cumulative percentage
+         會自動計算
+      ============================== */
 
-        plugins: {
-
-          legend: {
-
-            display: false
-
-          }
-
-        },
-
-
-        scales: {
-
-          y: {
-
-            min: 95,
-
-            max: 100,
-
-            ticks: {
-
-              callback: function(value) {
-
-                return value + "%";
-
-              }
-
-            },
-
-            grid: {
-
-              color: "#e2e8f0"
-
-            }
-
-          },
-
-
-          x: {
-
-            grid: {
-
-              color: "#f1f5f9"
-
-            }
-
-          }
-
-        }
-
-      }
-
-    });
-
-
-
-    /* ==========================================
-       PARETO CHART
-    ========================================== */
-
-    const paretoCanvas =
-      document.getElementById("paretoChart");
-
-
-    new Chart(paretoCanvas, {
-
-      data: {
+      pareto: {
 
         labels: [
 
           "RedCap 狀態更新",
-
           "Flow Sheet / Progress Note",
-
           "呼吸器功能與定期保養",
-
           "其他"
 
         ],
 
 
-        datasets: [
+        frequency: [
 
-          {
-
-            type: "bar",
-
-            label:
-              "缺失次數",
-
-            data:
-              [12, 9, 7, 6],
-
-            backgroundColor:
-              "#5b8bc4",
-
-            borderRadius:
-              0
-
-          },
-
-
-          {
-
-            type: "line",
-
-            label:
-              "累積百分比",
-
-            data:
-              [35, 62, 82, 100],
-
-            borderColor:
-              "#dc2626",
-
-            backgroundColor:
-              "#dc2626",
-
-            yAxisID:
-              "percentage",
-
-            tension:
-              0.3,
-
-            pointRadius:
-              3
-
-          }
+          12,
+          9,
+          7,
+          6
 
         ]
 
       },
 
 
-      options: {
 
-        responsive: true,
+      /* ==============================
+         ⑤ 本月 Quality Improvement Update
 
-        maintainAspectRatio: false,
+         每月只修改這四項
+      ============================== */
+
+      monthlyImprovement: {
+
+        currentPhase:
+          "CHECK",
 
 
-        plugins: {
+        mainProblem:
+          "本月主要重複缺失",
 
-          legend: {
 
-            position:
-              "top"
+        intervention:
+          "加強即時提醒與個別回饋",
 
-          }
+
+        outcome:
+          "持續監測改善成效",
+
+
+        nextAction:
+          "追蹤重複缺失並評估是否需要流程改善"
+
+      }
+
+    };
+
+
+    /* ========================================
+       📅 每月資料管理區結束
+       以下程式碼不需要修改
+    ======================================== */
+
+
+
+    /* ==================================================
+       HELPER FUNCTION
+    ================================================== */
+
+    function getLatestValue(data) {
+
+      return data[data.length - 1];
+
+    }
+
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
+    document.getElementById("periodTag").textContent =
+      "📊 資料期間：" + dashboardData.period;
+
+
+    document.getElementById("overviewSubtitle").textContent =
+      dashboardData.overviewSubtitle;
+
+
+
+    /* ==================================================
+       KPI SUMMARY
+    ================================================== */
+
+    const latestIndicator1 =
+      getLatestValue(
+        dashboardData.trend.indicator1
+      );
+
+
+    const latestIndicator2 =
+      getLatestValue(
+        dashboardData.trend.indicator2
+      );
+
+
+    const latestIndicator3 =
+      getLatestValue(
+        dashboardData.trend.indicator3
+      );
+
+
+    document.getElementById("kpi1Value").textContent =
+      latestIndicator1.toFixed(2) + "%";
+
+
+    document.getElementById("kpi2Value").textContent =
+      latestIndicator2.toFixed(2) + "%";
+
+
+    document.getElementById("kpi3Value").textContent =
+      latestIndicator3.toFixed(2) + "%";
+
+
+    document.getElementById("kpi1Name").textContent =
+      dashboardData.indicatorNames.indicator1;
+
+
+    document.getElementById("kpi2Name").textContent =
+      dashboardData.indicatorNames.indicator2;
+
+
+    document.getElementById("kpi3Name").textContent =
+      dashboardData.indicatorNames.indicator3;
+
+
+
+    /* ==================================================
+       LEGEND
+    ================================================== */
+
+    document.getElementById("legend1").textContent =
+      dashboardData.indicatorNames.indicator1;
+
+
+    document.getElementById("legend2").textContent =
+      dashboardData.indicatorNames.indicator2;
+
+
+    document.getElementById("legend3").textContent =
+      dashboardData.indicatorNames.indicator3;
+
+
+
+    /* ==================================================
+       QUALITY TREND CHART
+    ================================================== */
+
+    new Chart(
+      document.getElementById("trendChart"),
+      {
+
+        type: "line",
+
+        data: {
+
+          labels:
+            dashboardData.trend.months,
+
+
+          datasets: [
+
+            {
+
+              label:
+                dashboardData.indicatorNames.indicator1,
+
+              data:
+                dashboardData.trend.indicator1,
+
+              borderColor:
+                "#2563eb",
+
+              backgroundColor:
+                "#2563eb",
+
+              tension:
+                0.35,
+
+              pointRadius:
+                3,
+
+              pointHoverRadius:
+                5
+
+            },
+
+
+            {
+
+              label:
+                dashboardData.indicatorNames.indicator2,
+
+              data:
+                dashboardData.trend.indicator2,
+
+              borderColor:
+                "#047857",
+
+              backgroundColor:
+                "#047857",
+
+              tension:
+                0.35,
+
+              pointRadius:
+                3,
+
+              pointHoverRadius:
+                5
+
+            },
+
+
+            {
+
+              label:
+                dashboardData.indicatorNames.indicator3,
+
+              data:
+                dashboardData.trend.indicator3,
+
+              borderColor:
+                "#d97706",
+
+              backgroundColor:
+                "#d97706",
+
+              tension:
+                0.35,
+
+              pointRadius:
+                3,
+
+              pointHoverRadius:
+                5
+
+            }
+
+          ]
 
         },
 
 
-        scales: {
+        options: {
 
-          y: {
+          responsive: true,
 
-            beginAtZero: true,
+          maintainAspectRatio: false,
 
-            title: {
 
-              display: true,
+          plugins: {
 
-              text:
-                "缺失次數"
-
+            legend: {
+              display: false
             }
 
           },
 
 
-          percentage: {
+          scales: {
 
-            position:
-              "right",
+            y: {
 
-            min: 0,
+              min: 95,
 
-            max: 100,
+              max: 100,
 
-            grid: {
 
-              drawOnChartArea:
-                false
+              ticks: {
+
+                callback: function(value) {
+
+                  return value + "%";
+
+                }
+
+              },
+
+
+              grid: {
+
+                color: "#e2e8f0"
+
+              }
 
             },
 
 
-            ticks: {
+            x: {
 
-              callback: function(value) {
+              grid: {
 
-                return value + "%";
+                color: "#f1f5f9"
 
               }
 
@@ -2470,8 +2336,357 @@
         }
 
       }
+    );
 
-    });
+
+
+    /* ==================================================
+       PARETO CALCULATION
+    ================================================== */
+
+    const paretoFrequency =
+      dashboardData.pareto.frequency;
+
+
+    const paretoTotal =
+      paretoFrequency.reduce(
+        function(sum, value) {
+
+          return sum + value;
+
+        },
+        0
+      );
+
+
+    let runningTotal = 0;
+
+
+    const paretoCumulative =
+      paretoFrequency.map(
+        function(value) {
+
+          runningTotal += value;
+
+          return Number(
+            (
+              runningTotal /
+              paretoTotal *
+              100
+            ).toFixed(1)
+          );
+
+        }
+      );
+
+
+
+    /* ==================================================
+       PARETO CHART
+    ================================================== */
+
+    new Chart(
+      document.getElementById("paretoChart"),
+      {
+
+        data: {
+
+          labels:
+            dashboardData.pareto.labels,
+
+
+          datasets: [
+
+            {
+
+              type: "bar",
+
+              label:
+                "缺失次數",
+
+              data:
+                dashboardData.pareto.frequency,
+
+              backgroundColor:
+                "#5b8bc4"
+
+            },
+
+
+            {
+
+              type: "line",
+
+              label:
+                "累積百分比",
+
+              data:
+                paretoCumulative,
+
+              borderColor:
+                "#dc2626",
+
+              backgroundColor:
+                "#dc2626",
+
+              yAxisID:
+                "percentage",
+
+              tension:
+                0.3,
+
+              pointRadius:
+                3
+
+            }
+
+          ]
+
+        },
+
+
+        options: {
+
+          responsive: true,
+
+          maintainAspectRatio: false,
+
+
+          plugins: {
+
+            legend: {
+
+              position:
+                "top"
+
+            }
+
+          },
+
+
+          scales: {
+
+            y: {
+
+              beginAtZero: true,
+
+
+              title: {
+
+                display: true,
+
+                text:
+                  "缺失次數"
+
+              }
+
+            },
+
+
+            percentage: {
+
+              position:
+                "right",
+
+              min: 0,
+
+              max: 100,
+
+
+              grid: {
+
+                drawOnChartArea:
+                  false
+
+              },
+
+
+              ticks: {
+
+                callback: function(value) {
+
+                  return value + "%";
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+    );
+
+
+
+    /* ==================================================
+       PARETO TABLE
+    ================================================== */
+
+    const paretoTableBody =
+      document.getElementById(
+        "paretoTableBody"
+      );
+
+
+    dashboardData.pareto.labels.forEach(
+      function(label, index) {
+
+        let priority;
+
+
+        if (index === 0) {
+
+          priority = "Priority 1";
+
+        }
+
+        else if (index === 1) {
+
+          priority = "Priority 2";
+
+        }
+
+        else if (index === 2) {
+
+          priority = "Priority 3";
+
+        }
+
+        else {
+
+          priority = "Monitor";
+
+        }
+
+
+        paretoTableBody.innerHTML +=
+
+          "<tr>" +
+
+          "<td>" +
+          label +
+          "</td>" +
+
+          "<td>" +
+          dashboardData.pareto.frequency[index] +
+          "</td>" +
+
+          "<td>" +
+          paretoCumulative[index] +
+          "%" +
+          "</td>" +
+
+          "<td>" +
+          priority +
+          "</td>" +
+
+          "</tr>";
+
+      }
+    );
+
+
+
+    /* ==================================================
+       MONTHLY IMPROVEMENT UPDATE
+    ================================================== */
+
+    const improvement =
+      dashboardData.monthlyImprovement;
+
+
+    const monthlyUpdateGrid =
+      document.getElementById(
+        "monthlyUpdateGrid"
+      );
+
+
+    const updateItems = [
+
+      {
+
+        label:
+          "Current PDCA Phase",
+
+        value:
+          improvement.currentPhase
+
+      },
+
+
+      {
+
+        label:
+          "Main Problem",
+
+        value:
+          improvement.mainProblem
+
+      },
+
+
+      {
+
+        label:
+          "Intervention",
+
+        value:
+          improvement.intervention
+
+      },
+
+
+      {
+
+        label:
+          "Outcome",
+
+        value:
+          improvement.outcome
+
+      },
+
+
+      {
+
+        label:
+          "Next Action",
+
+        value:
+          improvement.nextAction
+
+      }
+
+    ];
+
+
+    updateItems.forEach(
+      function(item) {
+
+        monthlyUpdateGrid.innerHTML +=
+
+          '<div class="monthly-update-item">' +
+
+          '<div class="monthly-update-label">' +
+
+          item.label +
+
+          '</div>' +
+
+          '<div class="monthly-update-value">' +
+
+          item.value +
+
+          '</div>' +
+
+          '</div>';
+
+      }
+    );
 
 
   </script>
